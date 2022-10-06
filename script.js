@@ -29,8 +29,9 @@ urlLabel.appendChild(urlInputCreate);
 
 
 // クロスヘア
-const crosshair = `<div id="crosshair"></div>`;
-
+const crosshairCreate = createElement("div");
+crosshairCreate.setAttribute("id","crosshair");
+appBody.appendChild(crosshairCreate);
 
 let crosshairWidth = getComputedStyle(gameBody).getPropertyValue("--ch-width");
 let crosshairHeight = getComputedStyle(gameBody).getPropertyValue("--ch-height");
