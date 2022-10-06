@@ -1,0 +1,45 @@
+
+:root {
+    --ch-height: 10px;
+    --ch-width: 10px;
+}
+
+/*フォントの追加*/
+*,
+* * {
+    font-family: "Zen Maru Gothic";
+}
+
+/*右上の配信の奴とか消す*/
+.hCYBep {
+    display: none !important;
+}
+
+/*settingBoxのスタイル*/
+#settingBox {
+    color: white;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    background: #252525;
+    top: 0px;
+    right: 0px;
+    padding: 5px;
+}
+
+/*vCheckBoxの右寄せ*/
+#vCheckBox {
+    margin-left: auto;
+    margin-bottom: 5px;
+}
+
+/*クロスヘアの設定*/
+div#crosshair {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: var(--cc-image);
+    height: var(--ch-height);
+    width: var(--ch-width);
+}
