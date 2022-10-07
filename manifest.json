@@ -8,6 +8,7 @@
   "author" : "Namekuji",
   "content_scripts": [{
     "js": ["script.js"],
+    "css" : ["style.css"],
     "matches": ["*://voxiom.io/*"]
   }]
 }
