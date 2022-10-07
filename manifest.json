@@ -1,0 +1,13 @@
+{
+  
+  "manifest_version": 3,
+  "name": "Vanded Voxiom",
+  "short_name" : "V-Vox",
+  "version": "0.1",
+  "description" : "Make your experience at Voxiom.io all the more amazing!",
+  "author" : "Namekuji",
+  "content_scripts": [{
+    "js": ["/script.js"],
+    "matches": ["*://voxiom.io/*"]
+  }]
+}
