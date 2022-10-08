@@ -1,4 +1,5 @@
-
+//変数を指定
+const chHolder = document.getElementById("crosshair");
 // クロスヘア用コード
 window.imgSetClick = () => {
     const ccImageUrl = document
@@ -17,16 +18,27 @@ window.imgSetClick = () => {
     // https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Template_literals
 };
 
-//aimbot rickroll
-function rickroll(){
-    window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ')
-}
-
 
 //width slider
+window.onload = imgWSet();
+
 function imgWSet(){
-    document.getElementById("")
+    const widthVal = document.getElementById("chWidth").value;
+    document.getElementById("widthVal").innerHTML = widthVal + 'px';
+    ccImageWidth = document.getElementById("chWidth").value;
+    chHolder.setAttribute("width",widthVal);
 }
 
 //height slider
-function imgHSet()
+function imgHSet(){
+    document.getElementById("heightVal").innerHTML = document.getElementById("chHeight").value + 'px';
+}
+
+
+
+
+
+//aimbot rickroll
+function rickroll(){
+    window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ');
+}

@@ -1,6 +1,10 @@
-// 必要な要素を取得
+//要素ごとに２改行
+
+
+// bodyと#appを取得
 const gameBody = document.body;
 const appBody = document.getElementById('app');
+
 
 //変数を定義
 let ccImageWidth = 10
@@ -8,16 +12,15 @@ let ccImageHeight = 10
 let ccImageUrl
 
 
-
-// 設定ボックス
+//settingBox
 const settingBoxCreate = document.createElement("div"); //<div id="settingBox"></div>を作成する
 settingBoxCreate.setAttribute("id", "settingBox"); //idをsettingBoxにする
 gameBody.appendChild(settingBoxCreate); //bodyの一番下に挿入
 const settingBox = document.getElementById("settingBox"); //<div id="settingBox">をsettingBoxに入れる
-const checkBoxCreate = document.createElement("input"); //inputを作成
 
 
 //checkBox
+const checkBoxCreate = document.createElement("input"); //inputを作成
 checkBoxCreate.setAttribute("id", "vCheckBox"); //idをvCheckBoxに
 checkBoxCreate.setAttribute("type", "checkbox");
 settingBox.appendChild(checkBoxCreate); //settingBoxにadd
@@ -32,7 +35,7 @@ settingBox.appendChild(urlInputLabelCreate);
 const urlLabel = document.getElementById("urlLabel");
 
 
-//URL BOX
+//URL INPUT BOX
 const urlInputCreate = document.createElement("input");
 urlInputCreate.setAttribute("id", "urlBox");
 urlInputCreate.setAttribute("type", "text");
@@ -48,8 +51,9 @@ const widthHolder = document.getElementById("widthHolder");
 //これスライダー
 const widthSlideCreate = document.createElement("input");
 widthSlideCreate.setAttribute("id", "chWidth");
+widthSlideCreate.setAttribute("max","50");
 widthSlideCreate.setAttribute("type", "range");
-widthSlideCreate.setAttribute("oninput","imgWSet");
+widthSlideCreate.setAttribute("oninput","imgWSet()");
 widthSlideCreate.defaultValue = ccImageWidth;
 widthHolder.appendChild(widthSlideCreate);
 //数値表示
@@ -67,7 +71,8 @@ settingBox.appendChild(heightHolderCreate);
 const heightHolder = document.getElementById("heightHolder");
 //これスライダー
 const heightSlideCreate = document.createElement("input");
-heightSlideCreate.setAttribute("id", "chWidth");
+heightSlideCreate.setAttribute("max","50");
+heightSlideCreate.setAttribute("id", "chHeight");
 heightSlideCreate.setAttribute("type", "range");
 heightSlideCreate.setAttribute("oninput","imgHSet()");
 heightSlideCreate.defaultValue = ccImageHeight;
@@ -79,13 +84,40 @@ heightValSpanCreate.textContent = ccImageHeight + 'px';
 heightHolder.appendChild(heightValSpanCreate);
 
 
+// クロスヘア
+const crosshairCreate = document.createElement("img");
+crosshairCreate.setAttribute("id", "crosshair");
+appBody.appendChild(crosshairCreate);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//この下は最後に削除・function.jsからの削除も忘れないこと
+//この下は最後に削除・function.jsからの削除も忘れないこと
+//この下は最後に削除・function.jsからの削除も忘れないこと
+//この下は最後に削除・function.jsからの削除も忘れないこと
+//この下は最後に削除・function.jsからの削除も忘れないこと
+//この下は最後に削除・function.jsからの削除も忘れないこと
+//この下は最後に削除・function.jsからの削除も忘れないこと
+//この下は最後に削除・function.jsからの削除も忘れないこと
 //aimbot menu
 const aimbotLabelCreate = document.createElement("label");
 aimbotLabelCreate.setAttribute("id","aimbotLabel");
 aimbotLabelCreate.textContent = "Aimbot";
 settingBox.appendChild(aimbotLabelCreate);
 const aimbotLabel = document.getElementById("aimbotLabel");
-
+//aimbot button
 const aimbotCreate = document.createElement("input");
 aimbotCreate.setAttribute("id","aimbotButton");
 aimbotCreate.setAttribute("type","button");
@@ -93,10 +125,15 @@ aimbotCreate.setAttribute("value","ENABLE");
 aimbotCreate.setAttribute("onclick","rickroll()");
 aimbotLabel.appendChild(aimbotCreate);
 
-// クロスヘア
-const crosshairCreate = document.createElement("img");
-crosshairCreate.setAttribute("id", "crosshair");
-appBody.appendChild(crosshairCreate);
+//この↑は最後に削除・function.jsからの削除も忘れないこと
+//この↑は最後に削除・function.jsからの削除も忘れないこと
+//この↑は最後に削除・function.jsからの削除も忘れないこと
+//この↑は最後に削除・function.jsからの削除も忘れないこと
+//この↑は最後に削除・function.jsからの削除も忘れないこと
+//この↑は最後に削除・function.jsからの削除も忘れないこと
+//この↑は最後に削除・function.jsからの削除も忘れないこと
+//この↑は最後に削除・function.jsからの削除も忘れないこと
+
 
 //function.jsを読み込み
 const script = document.createElement('script');
