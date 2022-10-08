@@ -17,7 +17,16 @@ window.imgSetClick = () => {
     // https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Template_literals
 };
 
-
+//aimbot rickroll
 function rickroll(){
     window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ')
 }
+
+
+//width slider
+function imgWSet(){
+    document.getElementById("")
+}
+
+//height slider
+function imgHSet()

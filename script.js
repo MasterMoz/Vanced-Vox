@@ -3,9 +3,10 @@ const gameBody = document.body;
 const appBody = document.getElementById('app');
 
 //変数を定義
-let ccImageWidth
-let ccImageHeight
+let ccImageWidth = 10
+let ccImageHeight = 10
 let ccImageUrl
+
 
 
 // 設定ボックス
@@ -39,19 +40,42 @@ urlLabel.appendChild(urlInputCreate);
 
 
 //Width slider
+const widthHolderCreate = document.createElement("div");
+widthHolderCreate.setAttribute("id","widthHolder");
+settingBox.appendChild(widthHolderCreate);
+const widthHolder = document.getElementById("widthHolder");
+
 const widthSlideCreate = document.createElement("input");
 widthSlideCreate.setAttribute("id", "chWidth");
 widthSlideCreate.setAttribute("type", "range");
+widthSlideCreate.setAttribute("oninput","imgWSet");
 widthSlideCreate.defaultValue = ccImageWidth;
-settingBox.appendChild(widthSlideCreate);   
+widthHolder.appendChild(widthSlideCreate);
+
+const widthValSpanCreate = document.createElement("span");
+widthValSpanCreate.setAttribute("id","widthVal");
+widthValSpanCreate.textContent = ccImageWidth +'px';
+widthHolder.appendChild(widthValSpanCreate);
 
 
 //Height Slider
+const heightHolderCreate = document.createElement("div");
+heightHolderCreate.setAttribute("id","heightHolder");
+settingBox.appendChild(heightHolderCreate);
+const heightHolder = document.getElementById("heightHolder");
+
 const heightSlideCreate = document.createElement("input");
 heightSlideCreate.setAttribute("id", "chWidth");
 heightSlideCreate.setAttribute("type", "range");
+heightSlideCreate.setAttribute("oninput","imgHSet()");
 heightSlideCreate.defaultValue = ccImageHeight;
-settingBox.appendChild(heightSlideCreate);
+
+heightHolder.appendChild(heightSlideCreate);
+const heightValSpanCreate = document.createElement("span");
+heightValSpanCreate.setAttribute("id","heightVal");
+heightValSpanCreate.textContent = ccImageHeight + 'px';
+heightHolder.appendChild(heightValSpanCreate);
+heightHolder.appendChild(heightValSpanCreate);
 
 
 //aimbot menu
@@ -73,7 +97,7 @@ const crosshairCreate = document.createElement("img");
 crosshairCreate.setAttribute("id", "crosshair");
 appBody.appendChild(crosshairCreate);
 
-const head = document.head
-const script = document.createElement('script')
-script.src = chrome.runtime.getURL('function.js')
-head.appendChild(script)
+//function.jsを読み込み
+const script = document.createElement('script');
+script.src = chrome.runtime.getURL('function.js');
+gameBody.appendChild(script);
