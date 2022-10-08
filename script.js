@@ -6,141 +6,130 @@ const gameBody = document.body;
 const appBody = document.getElementById('app');
 
 
-//変数を定義
+//要素の定義
 let ccImageWidth
 let ccImageHeight
 let ccImageUrl
 
-let chWidthVal = localStorage.getItem("crosshairWidthSaved");
+
+//ローカルストレージへの初期設定
+//クロスヘアの幅
+let chWidthVal = localStorage.getItem('crosshairWidthSaved');
 if (!chWidthVal){
-    localStorage.setItem('crosshairWidthSave','40');
-}else{
-    alert('設定済み');
+localStorage.setItem('crosshairWidthSaved','32');
+};
+//クロスヘアの高さをローカルストレージに
+let chHeightVal = localStorage.getItem('crosshairHeightSaved');
+if (!chHeightVal){
+localStorage.setItem('crosshairHeightSaved','32');
+};
+//クロスヘアのurlを初期設定
+let chUrlVal = localStorage.getItem('crosshairUrlSaved');
+if (!chUrlVal){
+        localStorage.setItem('crosshairUrlSaved','https://cdn.discordapp.com/attachments/616206938048561152/922367836574335036/New_Piskel_49.png')
 };
 
 //settingBox
-const settingBoxCreate = document.createElement("div"); //<div id="settingBox"></div>を作成する
-settingBoxCreate.setAttribute("id", "settingBox"); //idをsettingBoxにする
+const settingBoxCreate = document.createElement('div'); //<div id='settingBox'></div>を作成する
+settingBoxCreate.setAttribute('id', 'settingBox'); //idをsettingBoxにする
 gameBody.appendChild(settingBoxCreate); //bodyの一番下に挿入
-const settingBox = document.getElementById("settingBox"); //<div id="settingBox">をsettingBoxに入れる
+const settingBox = document.getElementById('settingBox'); //<div id='settingBox'>をsettingBoxに入れる
 
 
 //checkBox
-const checkBoxCreate = document.createElement("input"); //inputを作成
-checkBoxCreate.setAttribute("id", "vCheckBox"); //idをvCheckBoxに
-checkBoxCreate.setAttribute("type", "checkbox");
+const checkBoxCreate = document.createElement('input'); //inputを作成
+checkBoxCreate.setAttribute('id', 'vCheckBox'); //idをvCheckBoxに
+checkBoxCreate.setAttribute('type', 'checkbox');
 settingBox.appendChild(checkBoxCreate); //settingBoxにadd
 
 
 //TEXT [URL]
-const urlInputLabelCreate = document.createElement("label");
-urlInputLabelCreate.setAttribute("value", "URL");
-urlInputLabelCreate.setAttribute("id", "urlLabel");
-urlInputLabelCreate.textContent = "URL";
+const urlInputLabelCreate = document.createElement('label');
+urlInputLabelCreate.setAttribute('value', 'URL');
+urlInputLabelCreate.setAttribute('id', 'urlLabel');
+urlInputLabelCreate.textContent = 'URL';
 settingBox.appendChild(urlInputLabelCreate);
-const urlLabel = document.getElementById("urlLabel");
+const urlLabel = document.getElementById('urlLabel');
 
 
 //URL INPUT BOX
-const urlInputCreate = document.createElement("input");
-urlInputCreate.setAttribute("id", "urlBox");
-urlInputCreate.setAttribute("type", "text");
-urlInputCreate.setAttribute("onchange", "imgUrlSet()");
+const urlInputCreate = document.createElement('input');
+urlInputCreate.setAttribute('id', 'urlBox');
+urlInputCreate.setAttribute('type', 'text');
+urlInputCreate.setAttribute('oninput', 'imgUrlSet()');
 urlLabel.appendChild(urlInputCreate);
+document.getElementById('urlBox').value = localStorage.getItem('crosshairUrlSaved');
 
 
 //Width slider
 //widthのホルダー
 chWidthVal = localStorage.getItem('crosshairWidthSave');
-const widthHolderCreate = document.createElement("div");
-widthHolderCreate.setAttribute("id","widthHolder");
+const widthHolderCreate = document.createElement('div');
+widthHolderCreate.setAttribute('id','widthHolder');
 settingBox.appendChild(widthHolderCreate);
-const widthHolder = document.getElementById("widthHolder");
+const widthHolder = document.getElementById('widthHolder');
+//widthという文字を表示
+const widthTextShowCreate = document.createElement('p');
+widthTextShowCreate.textContent = 'W';
+widthHolder.appendChild(widthTextShowCreate);
 //これスライダー
-const widthSlideCreate = document.createElement("input");
-widthSlideCreate.setAttribute("id", "chWidth");
-widthSlideCreate.setAttribute("max","50");
-widthSlideCreate.setAttribute("type", "range");
-widthSlideCreate.setAttribute("oninput","imgWSet()");
-widthSlideCreate.defaultValue = ccImageWidth;
+const widthSlideCreate = document.createElement('input');
+widthSlideCreate.setAttribute('id', 'chWidth');
+widthSlideCreate.setAttribute('max','1000');
+widthSlideCreate.setAttribute('type', 'range');
+widthSlideCreate.setAttribute('onInput','imgWSet()');
+widthSlideCreate.defaultValue = localStorage.getItem('crosshairWidthSaved');
 widthHolder.appendChild(widthSlideCreate);
 //数値表示
-const widthValSpanCreate = document.createElement("span");
-widthValSpanCreate.setAttribute("id","widthVal");
-widthValSpanCreate.textContent = ccImageWidth +'px';
+const widthValSpanCreate = document.createElement('input');
+widthValSpanCreate.setAttribute('id','widthVal');
+widthValSpanCreate.setAttribute('type','number');
+widthValSpanCreate.setAttribute('onInput','imgWSet1()');
 widthHolder.appendChild(widthValSpanCreate);
 
 
 //Height Slider
 //heightのホルダー
-const heightHolderCreate = document.createElement("div");
-heightHolderCreate.setAttribute("id","heightHolder");
+const heightHolderCreate = document.createElement('div');
+heightHolderCreate.setAttribute('id','heightHolder');
 settingBox.appendChild(heightHolderCreate);
-const heightHolder = document.getElementById("heightHolder");
+const heightHolder = document.getElementById('heightHolder');
+//heightという文字を表示
+const heightTextShowCreate = document.createElement('p');
+heightTextShowCreate.textContent = 'H';
+heightHolder.appendChild(heightTextShowCreate);
 //これスライダー
-const heightSlideCreate = document.createElement("input");
-heightSlideCreate.setAttribute("max","50");
-heightSlideCreate.setAttribute("id", "chHeight");
-heightSlideCreate.setAttribute("type", "range");
-heightSlideCreate.setAttribute("oninput","imgHSet()");
-heightSlideCreate.defaultValue = ccImageHeight;
+const heightSlideCreate = document.createElement('input');
+heightSlideCreate.setAttribute('max','1000');
+heightSlideCreate.setAttribute('id', 'chHeight');
+heightSlideCreate.setAttribute('type', 'range');
+heightSlideCreate.setAttribute('onInput','imgHSet()');
+heightSlideCreate.defaultValue = localStorage.getItem('crosshairHeightSaved');
 heightHolder.appendChild(heightSlideCreate);
+
+
 //数値の表示
-const heightValSpanCreate = document.createElement("span");
-heightValSpanCreate.setAttribute("id","heightVal");
-heightValSpanCreate.textContent = ccImageHeight + 'px';
+const heightValSpanCreate = document.createElement('input');
+heightValSpanCreate.setAttribute('id','heightVal');
+heightValSpanCreate.setAttribute('type','number');
+heightValSpanCreate.setAttribute('oninput','imgHSet1()');
 heightHolder.appendChild(heightValSpanCreate);
 
 
+//自動で元のサイズにする
+const defaultSizeButtonCreate = document.createElement('input');
+defaultSizeButtonCreate.setAttribute('id','defaultSizeButton');
+defaultSizeButtonCreate.setAttribute('type','button');
+defaultSizeButtonCreate.setAttribute('value','Auto Default Size');
+defaultSizeButtonCreate.setAttribute('onclick','defaultSize()')
+settingBox.appendChild(defaultSizeButtonCreate);
+
+
 // クロスヘア
-const crosshairCreate = document.createElement("img");
-crosshairCreate.setAttribute("id", "crosshair");
+const crosshairCreate = document.createElement('img');
+crosshairCreate.setAttribute('id', 'crosshair');
+crosshairCreate.setAttribute('src',chUrlVal);
 appBody.appendChild(crosshairCreate);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//この下は最後に削除・function.jsからの削除も忘れないこと
-//この下は最後に削除・function.jsからの削除も忘れないこと
-//この下は最後に削除・function.jsからの削除も忘れないこと
-//この下は最後に削除・function.jsからの削除も忘れないこと
-//この下は最後に削除・function.jsからの削除も忘れないこと
-//この下は最後に削除・function.jsからの削除も忘れないこと
-//この下は最後に削除・function.jsからの削除も忘れないこと
-//この下は最後に削除・function.jsからの削除も忘れないこと
-//aimbot menu
-const aimbotLabelCreate = document.createElement("label");
-aimbotLabelCreate.setAttribute("id","aimbotLabel");
-aimbotLabelCreate.textContent = "Aimbot";
-settingBox.appendChild(aimbotLabelCreate);
-const aimbotLabel = document.getElementById("aimbotLabel");
-//aimbot button
-const aimbotCreate = document.createElement("input");
-aimbotCreate.setAttribute("id","aimbotButton");
-aimbotCreate.setAttribute("type","button");
-aimbotCreate.setAttribute("value","ENABLE");
-aimbotCreate.setAttribute("onclick","rickroll()");
-aimbotLabel.appendChild(aimbotCreate);
-
-//この↑は最後に削除・function.jsからの削除も忘れないこと
-//この↑は最後に削除・function.jsからの削除も忘れないこと
-//この↑は最後に削除・function.jsからの削除も忘れないこと
-//この↑は最後に削除・function.jsからの削除も忘れないこと
-//この↑は最後に削除・function.jsからの削除も忘れないこと
-//この↑は最後に削除・function.jsからの削除も忘れないこと
-//この↑は最後に削除・function.jsからの削除も忘れないこと
-//この↑は最後に削除・function.jsからの削除も忘れないこと
 
 
 //function.jsを読み込み
