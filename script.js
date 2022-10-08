@@ -40,18 +40,19 @@ urlLabel.appendChild(urlInputCreate);
 
 
 //Width slider
+//widthのホルダー
 const widthHolderCreate = document.createElement("div");
 widthHolderCreate.setAttribute("id","widthHolder");
 settingBox.appendChild(widthHolderCreate);
 const widthHolder = document.getElementById("widthHolder");
-
+//これスライダー
 const widthSlideCreate = document.createElement("input");
 widthSlideCreate.setAttribute("id", "chWidth");
 widthSlideCreate.setAttribute("type", "range");
 widthSlideCreate.setAttribute("oninput","imgWSet");
 widthSlideCreate.defaultValue = ccImageWidth;
 widthHolder.appendChild(widthSlideCreate);
-
+//数値表示
 const widthValSpanCreate = document.createElement("span");
 widthValSpanCreate.setAttribute("id","widthVal");
 widthValSpanCreate.textContent = ccImageWidth +'px';
@@ -59,22 +60,22 @@ widthHolder.appendChild(widthValSpanCreate);
 
 
 //Height Slider
+//heightのホルダー
 const heightHolderCreate = document.createElement("div");
 heightHolderCreate.setAttribute("id","heightHolder");
 settingBox.appendChild(heightHolderCreate);
 const heightHolder = document.getElementById("heightHolder");
-
+//これスライダー
 const heightSlideCreate = document.createElement("input");
 heightSlideCreate.setAttribute("id", "chWidth");
 heightSlideCreate.setAttribute("type", "range");
 heightSlideCreate.setAttribute("oninput","imgHSet()");
 heightSlideCreate.defaultValue = ccImageHeight;
-
 heightHolder.appendChild(heightSlideCreate);
+//数値の表示
 const heightValSpanCreate = document.createElement("span");
 heightValSpanCreate.setAttribute("id","heightVal");
 heightValSpanCreate.textContent = ccImageHeight + 'px';
-heightHolder.appendChild(heightValSpanCreate);
 heightHolder.appendChild(heightValSpanCreate);
 
 
