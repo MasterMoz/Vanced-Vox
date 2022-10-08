@@ -1,6 +1,10 @@
 {
   
   "manifest_version": 3,
+  "permissions": ["activeTab", "scripting", "storage"],
+  "icons":{
+    "16":"icon.png"
+  },
   "name": "Vanded Voxiom",
   "short_name" : "V-Vox",
   "version": "0.1",
