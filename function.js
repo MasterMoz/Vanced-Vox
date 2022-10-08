@@ -26,12 +26,22 @@ function imgWSet(){
     const widthVal = document.getElementById("chWidth").value;
     document.getElementById("widthVal").innerHTML = widthVal + 'px';
     ccImageWidth = document.getElementById("chWidth").value;
-    chHolder.setAttribute("width",widthVal);
+    chHolder.setAttribute("width",widthVal+'px');
 }
 
 //height slider
+window.onload = imgHSet();
+
 function imgHSet(){
-    document.getElementById("heightVal").innerHTML = document.getElementById("chHeight").value + 'px';
+    const heightVal = document.getElementById("chHeight").value;
+    document.getElementById("heightVal").innerHTML = heightVal + 'px';
+    ccImageHeight = document.getElementById("chHeight").value;
+    chHolder.setAttribute("height",heightVal+'px');
+}
+
+function imgUrlSet(){
+    const imageUrl = document.getElementById("urlBox").value;
+    chHolder.setAttribute("src",imageUrl);
 }
 
 

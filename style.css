@@ -35,14 +35,12 @@
 }
 
 /*クロスヘアの設定*/
-div#crosshair {
+#crosshair {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-image: var(--cc-image);
-    height: var(--ch-height);
-    width: var(--ch-width);
 }
 
 label#aimbotLabel {

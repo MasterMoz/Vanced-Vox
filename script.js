@@ -7,10 +7,16 @@ const appBody = document.getElementById('app');
 
 
 //変数を定義
-let ccImageWidth = 10
-let ccImageHeight = 10
+let ccImageWidth
+let ccImageHeight
 let ccImageUrl
 
+let chWidthVal = localStorage.getItem("crosshairWidthSaved");
+if (!chWidthVal){
+    localStorage.setItem('crosshairWidthSave','40');
+}else{
+    alert('設定済み');
+};
 
 //settingBox
 const settingBoxCreate = document.createElement("div"); //<div id="settingBox"></div>を作成する
@@ -39,11 +45,13 @@ const urlLabel = document.getElementById("urlLabel");
 const urlInputCreate = document.createElement("input");
 urlInputCreate.setAttribute("id", "urlBox");
 urlInputCreate.setAttribute("type", "text");
+urlInputCreate.setAttribute("onchange", "imgUrlSet()");
 urlLabel.appendChild(urlInputCreate);
 
 
 //Width slider
 //widthのホルダー
+chWidthVal = localStorage.getItem('crosshairWidthSave');
 const widthHolderCreate = document.createElement("div");
 widthHolderCreate.setAttribute("id","widthHolder");
 settingBox.appendChild(widthHolderCreate);
