@@ -44,3 +44,11 @@ div#crosshair {
     height: var(--ch-height);
     width: var(--ch-width);
 }
+
+label#aimbotLabel {
+    display: flex;
+}
+
+#aimbotButton {
+    margin-left: auto;
+}

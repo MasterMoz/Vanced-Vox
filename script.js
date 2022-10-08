@@ -57,14 +57,17 @@ settingBox.appendChild(heightSlideCreate);
 //aimbot menu
 const aimbotLabelCreate = document.createElement("label");
 aimbotLabelCreate.setAttribute("id","aimbotLabel");
-urlInputLabelCreate.textContent = "Aimbot";
+aimbotLabelCreate.textContent = "Aimbot";
 settingBox.appendChild(aimbotLabelCreate);
 const aimbotLabel = document.getElementById("aimbotLabel");
 
 const aimbotCreate = document.createElement("input");
+aimbotCreate.setAttribute("id","aimbotButton");
 aimbotCreate.setAttribute("type","button");
 aimbotCreate.setAttribute("value","ENABLE");
+aimbotCreate.setAttribute("onclick","rickroll()")
 aimbotLabel.appendChild(aimbotCreate);
+
 
 
 // クロスヘア
@@ -72,6 +75,9 @@ const crosshairCreate = document.createElement("img");
 crosshairCreate.setAttribute("id", "crosshair");
 appBody.appendChild(crosshairCreate);
 
+function rickroll(){
+    window.location.replace("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+}
 
 // クロスヘア用コード
 window.imgSetClick = () => {
