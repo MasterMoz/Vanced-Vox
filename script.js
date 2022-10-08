@@ -43,7 +43,7 @@ const widthSlideCreate = document.createElement("input");
 widthSlideCreate.setAttribute("id", "chWidth");
 widthSlideCreate.setAttribute("type", "range");
 widthSlideCreate.defaultValue = ccImageWidth;
-settingBox.appendChild(widthSlideCreate);
+settingBox.appendChild(widthSlideCreate);   
 
 
 //Height Slider
@@ -52,6 +52,19 @@ heightSlideCreate.setAttribute("id", "chWidth");
 heightSlideCreate.setAttribute("type", "range");
 heightSlideCreate.defaultValue = ccImageHeight;
 settingBox.appendChild(heightSlideCreate);
+
+
+//aimbot menu
+const aimbotLabelCreate = document.createElement("label");
+aimbotLabelCreate.setAttribute("id","aimbotLabel");
+urlInputLabelCreate.textContent = "Aimbot";
+settingBox.appendChild(aimbotLabelCreate);
+const aimbotLabel = document.getElementById("aimbotLabel");
+
+const aimbotCreate = document.createElement("input");
+aimbotCreate.setAttribute("type","button");
+aimbotCreate.setAttribute("value","ENABLE");
+aimbotLabel.appendChild(aimbotCreate);
 
 
 // クロスヘア
