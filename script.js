@@ -68,31 +68,12 @@ aimbotCreate.setAttribute("value","ENABLE");
 aimbotCreate.setAttribute("onclick","rickroll()");
 aimbotLabel.appendChild(aimbotCreate);
 
-function rickroll(){
-    window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ')
-}
-
-
 // クロスヘア
 const crosshairCreate = document.createElement("img");
 crosshairCreate.setAttribute("id", "crosshair");
 appBody.appendChild(crosshairCreate);
 
-
-// クロスヘア用コード
-window.imgSetClick = () => {
-    const ccImageUrl = document
-        .getElementById('urlBox')
-        .value;
-    ccImageWidth = document
-        .getElementById('chWidth')
-        .value;
-    localStorage.setItem.cImgW = ccImageWidth;
-    ccImageHeight = document
-        .getElementById('chHeight')
-        .value;
-    localStorage.setItem.cImgH = ccImageHeight;
-    ccImage.innerHTML = `<img src="${ccImageUrl}" width="${ccImageWidth}" height="${ccImageHeight}"/>`;
-    // テンプレートリテラル:
-    // https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Template_literals
-};
+const head = document.head
+const script = document.createElement('script')
+script.src = chrome.runtime.getURL('function.js')
+head.appendChild(script)

@@ -14,5 +14,11 @@
     "js": ["script.js"],
     "css" : ["style.css"],
     "matches": ["*://voxiom.io/*"]
-  }]
+  }],
+  "web_accessible_resources": [
+    {
+      "resources": ["function.js"],
+      "matches": ["*://voxiom.io/*"]
+    }
+  ]
 }
