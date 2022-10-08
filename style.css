@@ -9,6 +9,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 
@@ -32,6 +33,10 @@ html,body {
     display: none !important;
 }
 
+#settingBox:focus,
+#settingBox *:focus{
+    outline: none;
+}
 /*settingBoxのスタイル*/
 #settingBox {
     color: white;
@@ -42,7 +47,7 @@ html,body {
     top: 0px;
     right: 0px;
     padding: 10px;
-    width:200px;
+    width:250px;
 }
 
 /*vCheckBoxの右寄せ*/
@@ -81,11 +86,35 @@ html,body {
 div#heightHolder,
 div#widthHolder{
     display:grid;
-    grid-template-columns:20px auto 50px;
+    grid-template-columns:25px auto 60px;
 }
 p{
     margin-block-start: unset;
     margin-block-end: unset;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    height:2px;
+    margin-top:10px;
+}
+
+input[type=range]::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    background: rgb(0, 0, 0);
+    border:2px solid white;
+    height:8px;
+    width:8px;
+    border-radius:10px;
+}
+#widthVal,
+#heightVal{
+    background:transparent;
+    border:unset;
+    border-bottom:1px solid white;
+    width:45px;
+    color:white;
+    margin-left:5px;
 }

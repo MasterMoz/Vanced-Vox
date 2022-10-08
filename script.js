@@ -129,7 +129,7 @@ settingBox.appendChild(defaultSizeButtonCreate);
 const crosshairCreate = document.createElement('img');
 crosshairCreate.setAttribute('id', 'crosshair');
 crosshairCreate.setAttribute('src',chUrlVal);
-appBody.appendChild(crosshairCreate);
+appBody.prepend(crosshairCreate);
 
 
 //function.jsを読み込み

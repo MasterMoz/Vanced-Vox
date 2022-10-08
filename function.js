@@ -15,7 +15,6 @@ function imgWSet(){
 //numberのinput側
 function imgWSet1(){
     const widthVal = document.getElementById('widthVal').value;
-    console.log(widthVal);
     chHolder.setAttribute('width',widthVal +'px')
     document.getElementById('chWidth').value = widthVal;
 }
@@ -34,7 +33,6 @@ function imgHSet(){
 //numberのinput側
 function imgHSet1(){
     const heightVal  = document.getElementById('heightVal').value;
-    console.log(widthVal);
     chHolder.setAttribute('height',heightVal +'px');
     //スライダーのvalueを変更
     document.getElementById('chHeight').value = heightVal;
