@@ -32,7 +32,7 @@ if (!chUrlVal){
 };
 chUrlVal = localStorage.getItem('crosshairUrlSaved');
 
-//表示非表示チェックボックスの初期      設定およびうんたらかんたら
+//表示非表示チェックボックスの初期設定およびうんたらかんたら
 let cBoxVal = localStorage.getItem('checkBoxSaved');
 console.log(cBoxVal +' cBoxVal');
 console.log(localStorage.getItem('checkBoxSaved') + ' local');
@@ -81,7 +81,7 @@ checkBoxCreate.setAttribute('onChange','checkBox()')
 checkBoxCreate.setAttribute('type', 'checkbox');
 checkBoxCreate.setAttribute('value','vCBox');
 cBoxLabel.appendChild(checkBoxCreate); //settingBoxにadd
-const vcheck = document.getElementById('vCheckBox');
+let vcheck = document.getElementById('vCheckBox');
 const cBoxSpan = document.createElement('span');
 cBoxSpan.setAttribute('id','cBoxDeco');
 cBoxLabel.appendChild(cBoxSpan);
@@ -187,3 +187,5 @@ appBody.prepend(crosshairCreate);
 const script = document.createElement('script');
 script.src = chrome.runtime.getURL('function.js');
 gameBody.appendChild(script);
+
+

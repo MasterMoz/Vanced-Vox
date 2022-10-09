@@ -1,20 +1,44 @@
 //変数を指定
 const chHolder = document.getElementById('crosshair');
+const hide1 = document.getElementById('title');
+const hide2 = document.getElementById('crosshairSettingBox');
+const hide3 = document.getElementById('settingBox');
 
+cBoxVal = localStorage.getItem('checkBoxSaved');
 
 //表示非表示チェックボックス
+
 function checkBox(){
     const checkbox = document.getElementById('vCheckBox');
     let checktf = checkbox.checked;
     if(checktf){
         localStorage.setItem('checkBoxSaved','true');
         console.log("true");
+        hide1.setAttribute("class","");
+        hide2.setAttribute('class','');
+        hide3.setAttribute('class','');
     }else if(!checktf){
         localStorage.setItem('checkBoxSaved','false');
         console.log("false");
+        hide1.setAttribute("class","hiddenClass");
+        hide2.setAttribute('class','hiddenClass');
+        hide3.setAttribute('class','hiddenClassSetting');
+    }
+}
+window.onload = onloadCBox();
+
+function onloadCBox(){
+    let checktf = localStorage.getItem('checkBoxSaved');
+    if(checktf === "true"){
+
+    }else if(checktf === "false") {
+
     }
 }
 
+//設定ボックスの表示・非表示を切り替える
+
+vcheck = document.getElementById('vCheckBox');
 
 window.onload = cbLoaded();
 
@@ -22,15 +46,24 @@ function cbLoaded(){
     if(cBoxVal === "true"){
         console.log(cBoxVal +'/ true check');
         vcheck.checked = true;
+        console.log("default is true");
+        hide1.setAttribute("class","");
+        hide2.setAttribute('class','');
+        hide3.setAttribute('class','');
     }else if(cBoxVal === "false"){
         console.log(cBoxVal +'/ false check');
         vcheck.checked = false;
+        console.log("default is false");
+        hide1.setAttribute("class","hiddenClass");
+        hide2.setAttribute('class','hiddenClass');
+        hide3.setAttribute('class','hiddenClassSetting');
     }
 }
 
 
 //width slider
 window.onload = imgWSet();
+
 //スライダー側
 function imgWSet(){
     const widthVal = document.getElementById('chWidth').value;
@@ -42,7 +75,7 @@ function imgWSet(){
 //numberのinput側
 function imgWSet1(){
     const widthVal = document.getElementById('widthVal').value;
-    chHolder.setAttribute('width',widthVal +'px')
+    chHolder.setAttribute('width',widthVal +'px');
     document.getElementById('chWidth').value = widthVal;
 }
 
@@ -96,4 +129,3 @@ function defaultSize(){
     document.getElementById('chWidth').value = imgWidth;
     document.getElementById('chHeight').value = imgHeight;
 }
-

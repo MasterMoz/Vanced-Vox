@@ -120,7 +120,11 @@ input[type=range]::-webkit-slider-thumb{
 }
 
 .hiddenClass{
-    display:none
+    display:none !important;
+}
+.hiddenClassSetting{
+    background:transparent !important;
+    width:unset !important;
 }
 
 div#titleHolder{
@@ -150,8 +154,8 @@ input#vCheckBox{
     height:12px;
     width:12px;
     position: fixed;
-    right:2px;
-    top:2px;
+    right:0px;
+    top:0px;
     display: flex;
     align-content: center;
     justify-content: center;
