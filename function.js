@@ -5,7 +5,27 @@ const chHolder = document.getElementById('crosshair');
 //表示非表示チェックボックス
 function checkBox(){
     const checkbox = document.getElementById('vCheckBox');
-    checktf = checkbox.checked;
+    let checktf = checkbox.checked;
+    if(checktf){
+        localStorage.setItem('checkBoxSaved','true');
+        console.log("true");
+    }else if(!checktf){
+        localStorage.setItem('checkBoxSaved','false');
+        console.log("false");
+    }
+}
+
+
+window.onload = cbLoaded();
+
+function cbLoaded(){
+    if(cBoxVal === "true"){
+        console.log(cBoxVal +'/ true check');
+        vcheck.checked = true;
+    }else if(cBoxVal === "false"){
+        console.log(cBoxVal +'/ false check');
+        vcheck.checked = false;
+    }
 }
 
 

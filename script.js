@@ -18,11 +18,13 @@ let chWidthVal = localStorage.getItem('crosshairWidthSaved');
 if (!chWidthVal){
         localStorage.setItem('crosshairWidthSaved','32');
 };
+
 //クロスヘアの高さをローカルストレージに
 let chHeightVal = localStorage.getItem('crosshairHeightSaved');
 if (!chHeightVal){
         localStorage.setItem('crosshairHeightSaved','32');
 };
+
 //クロスヘアのurlを初期設定
 let chUrlVal = localStorage.getItem('crosshairUrlSaved');
 if (!chUrlVal){
@@ -30,12 +32,23 @@ if (!chUrlVal){
 };
 chUrlVal = localStorage.getItem('crosshairUrlSaved');
 
-//表示非表示チェックボックスの初期設定およびうんたらかんたら
+//表示非表示チェックボックスの初期      設定およびうんたらかんたら
 let cBoxVal = localStorage.getItem('checkBoxSaved');
-if (cBoxVal = null){
+console.log(cBoxVal +' cBoxVal');
+console.log(localStorage.getItem('checkBoxSaved') + ' local');
+
+if (cBoxVal == null){
+        console.log(cBoxVal + ' null');
         localStorage.setItem('checkBoxSaved','true');
+}else if(cBoxVal === "true"){
+        console.log(cBoxVal +' true');
+}else if(cBoxVal === "false"){
+        console.log(cBoxVal +' false');
+}else{
+        console.log('hoge')
 }
 cBoxVal = localStorage.getItem('checkBoxSaved');
+console.log(cBoxVal);
 
 
 
@@ -69,11 +82,6 @@ checkBoxCreate.setAttribute('type', 'checkbox');
 checkBoxCreate.setAttribute('value','vCBox');
 cBoxLabel.appendChild(checkBoxCreate); //settingBoxにadd
 const vcheck = document.getElementById('vCheckBox');
-if (cBoxVal = true){
-        vcheck.checked = true;
-}else if (cBoxVal = false){
-        vcheck.checked = false;
-}
 const cBoxSpan = document.createElement('span');
 cBoxSpan.setAttribute('id','cBoxDeco');
 cBoxLabel.appendChild(cBoxSpan);
