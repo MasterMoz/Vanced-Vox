@@ -32,6 +32,11 @@ chUrlVal = localStorage.getItem('crosshairUrlSaved');
 
 //表示非表示チェックボックスの初期設定およびうんたらかんたら
 let cBoxVal = localStorage.getItem('checkBoxSaved');
+if (cBoxVal = null){
+        localStorage.setItem('checkBoxSaved','true');
+}
+cBoxVal = localStorage.getItem('checkBoxSaved');
+
 
 
 //settingBox
