@@ -2,6 +2,13 @@
 const chHolder = document.getElementById('crosshair');
 
 
+//表示非表示チェックボックス
+function checkBox(){
+    const checkbox = document.getElementById('vCheckBox');
+    checktf = checkbox.checked;
+}
+
+
 //width slider
 window.onload = imgWSet();
 //スライダー側
@@ -52,8 +59,8 @@ function imgUrlSet(){
 function defaultSize(){
     const crosshairImage = document.getElementById('crosshair');
     //画像サイズの取得
-    let imgWidth =  crosshairImage.naturalHeight;
-    let imgHeight = crosshairImage.naturalWidth;
+    let imgWidth =  crosshairImage.naturalWidth;
+    let imgHeight = crosshairImage.naturalHeight;
     console.log('Width is ' + imgWidth + 'px');
     console.log('Height is ' + imgHeight + 'px');
     //画像サイズ

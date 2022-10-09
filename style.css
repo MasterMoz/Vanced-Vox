@@ -76,7 +76,7 @@ html,body {
     border:unset;
     width:auto;
     width:160px;
-    margin-left:auto;
+    margin-left:10px;
     border-bottom:1px white solid;
 }
 
@@ -117,4 +117,49 @@ input[type=range]::-webkit-slider-thumb{
     width:45px;
     color:white;
     margin-left:5px;
+}
+
+.hiddenClass{
+    display:none
+}
+
+div#titleHolder{
+    display: flex;
+    flex-direction:row;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+h2#title{
+    font-size: 15px;
+}
+div#crosshairSettingBox{
+    display: flex;
+    flex-direction: column;
+}
+div[id*="Holder"],
+label#urlLabel,
+input#defaultSizeButton{
+    margin-bottom:3px;
+    margin-top:3px;
+}
+input#vCheckBox{
+    display: none;
+}
+#cBoxDeco{
+    background:gray;
+    height:12px;
+    width:12px;
+    position: fixed;
+    right:2px;
+    top:2px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+#vCheckBox:checked + #cBoxDeco:before{
+    content:"";
+    background:#202020;
+    height:8px;
+    width:8px;
 }

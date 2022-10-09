@@ -16,18 +16,23 @@ let ccImageUrl
 //クロスヘアの幅
 let chWidthVal = localStorage.getItem('crosshairWidthSaved');
 if (!chWidthVal){
-localStorage.setItem('crosshairWidthSaved','32');
+        localStorage.setItem('crosshairWidthSaved','32');
 };
 //クロスヘアの高さをローカルストレージに
 let chHeightVal = localStorage.getItem('crosshairHeightSaved');
 if (!chHeightVal){
-localStorage.setItem('crosshairHeightSaved','32');
+        localStorage.setItem('crosshairHeightSaved','32');
 };
 //クロスヘアのurlを初期設定
 let chUrlVal = localStorage.getItem('crosshairUrlSaved');
 if (!chUrlVal){
         localStorage.setItem('crosshairUrlSaved','https://cdn.discordapp.com/attachments/616206938048561152/922367836574335036/New_Piskel_49.png')
 };
+chUrlVal = localStorage.getItem('crosshairUrlSaved');
+
+//表示非表示チェックボックスの初期設定およびうんたらかんたら
+let cBoxVal = localStorage.getItem('checkBoxSaved');
+
 
 //settingBox
 const settingBoxCreate = document.createElement('div'); //<div id='settingBox'></div>を作成する
@@ -35,20 +40,53 @@ settingBoxCreate.setAttribute('id', 'settingBox'); //idをsettingBoxにする
 gameBody.appendChild(settingBoxCreate); //bodyの一番下に挿入
 const settingBox = document.getElementById('settingBox'); //<div id='settingBox'>をsettingBoxに入れる
 
+//titleHolder
+const titleHCreate = document.createElement('div');
+titleHCreate.setAttribute('id','titleHolder');
+settingBox.appendChild(titleHCreate);
+const titleHolder = document.getElementById('titleHolder')
+const titleCreate = document.createElement('h2');
+titleCreate.setAttribute('id','title');
+titleCreate.textContent = 'VancedVoxiom';
+titleHolder.appendChild(titleCreate);
 
-//checkBox
+//Show <-> Hide checkbox
+const cBoxLabelCreate = document.createElement('label');//input+abelを作成
+cBoxLabelCreate.setAttribute('id','cBoxLabel');
+cBoxLabelCreate.setAttribute('value','vCBox');
+titleHolder.appendChild(cBoxLabelCreate);
+const cBoxLabel = document.getElementById('cBoxLabel');
+
 const checkBoxCreate = document.createElement('input'); //inputを作成
 checkBoxCreate.setAttribute('id', 'vCheckBox'); //idをvCheckBoxに
+checkBoxCreate.setAttribute('onChange','checkBox()')
 checkBoxCreate.setAttribute('type', 'checkbox');
-settingBox.appendChild(checkBoxCreate); //settingBoxにadd
+checkBoxCreate.setAttribute('value','vCBox');
+cBoxLabel.appendChild(checkBoxCreate); //settingBoxにadd
+const vcheck = document.getElementById('vCheckBox');
+if (cBoxVal = true){
+        vcheck.checked = true;
+}else if (cBoxVal = false){
+        vcheck.checked = false;
+}
+const cBoxSpan = document.createElement('span');
+cBoxSpan.setAttribute('id','cBoxDeco');
+cBoxLabel.appendChild(cBoxSpan);
+
+
+
+//crosshairBoxHolder
+const crosshairBoxCreate = document.createElement('div');
+crosshairBoxCreate.setAttribute('id','crosshairSettingBox');
+settingBox.appendChild(crosshairBoxCreate);
+const crosshairSettingBox = document.getElementById('crosshairSettingBox');
 
 
 //TEXT [URL]
 const urlInputLabelCreate = document.createElement('label');
-urlInputLabelCreate.setAttribute('value', 'URL');
 urlInputLabelCreate.setAttribute('id', 'urlLabel');
 urlInputLabelCreate.textContent = 'URL';
-settingBox.appendChild(urlInputLabelCreate);
+crosshairSettingBox.appendChild(urlInputLabelCreate);
 const urlLabel = document.getElementById('urlLabel');
 
 
@@ -66,7 +104,7 @@ document.getElementById('urlBox').value = localStorage.getItem('crosshairUrlSave
 chWidthVal = localStorage.getItem('crosshairWidthSave');
 const widthHolderCreate = document.createElement('div');
 widthHolderCreate.setAttribute('id','widthHolder');
-settingBox.appendChild(widthHolderCreate);
+crosshairSettingBox.appendChild(widthHolderCreate);
 const widthHolder = document.getElementById('widthHolder');
 //widthという文字を表示
 const widthTextShowCreate = document.createElement('p');
@@ -92,7 +130,7 @@ widthHolder.appendChild(widthValSpanCreate);
 //heightのホルダー
 const heightHolderCreate = document.createElement('div');
 heightHolderCreate.setAttribute('id','heightHolder');
-settingBox.appendChild(heightHolderCreate);
+crosshairSettingBox.appendChild(heightHolderCreate);
 const heightHolder = document.getElementById('heightHolder');
 //heightという文字を表示
 const heightTextShowCreate = document.createElement('p');
@@ -122,7 +160,7 @@ defaultSizeButtonCreate.setAttribute('id','defaultSizeButton');
 defaultSizeButtonCreate.setAttribute('type','button');
 defaultSizeButtonCreate.setAttribute('value','Auto Default Size');
 defaultSizeButtonCreate.setAttribute('onclick','defaultSize()')
-settingBox.appendChild(defaultSizeButtonCreate);
+crosshairSettingBox.appendChild(defaultSizeButtonCreate);
 
 
 // クロスヘア
