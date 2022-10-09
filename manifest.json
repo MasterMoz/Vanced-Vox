@@ -17,8 +17,8 @@
   }],
   "web_accessible_resources": [
     {
-      "resources":  ["function.js"],
-
+      "resources": [ "function.js" ],
+      "matches": ["*://voxiom.io/*"]
       }
     ]
 }
