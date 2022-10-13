@@ -47,7 +47,7 @@ if (!logoUrlVal) {
         localStorage.setItem('logoUrlSaved', 'https://voxiom.io/package/ea55824826de52b7ccc3.png');
 }
 logoUrlVal = localStorage.getItem('logoUrlSaved');
-console.log(logoUrlVal + ' logo url');
+console.log(logoUrlVal + '/ logo url');
 
 
 //ロゴの文字の初期値を設定
@@ -115,16 +115,7 @@ const cBoxSpan = document.createElement('span');
 cBoxSpan.setAttribute('id', 'cBoxDeco');
 cBoxLabel.appendChild(cBoxSpan);
 
-//spacer
-let spacer = document.createElement('div');
-spacer.setAttribute('class', 'spacer');
-settingBox.appendChild(spacer);
 
-//title
-const crosshairHolderTitleCreate = document.createElement('h3');
-crosshairHolderTitleCreate.setAttribute('class', 'fncTitle');
-crosshairHolderTitleCreate.textContent = '- Crosshair -'
-settingBox.appendChild(crosshairHolderTitleCreate);
 
 //crosshairSettingBoxHolder
 const crosshairBoxCreate = document.createElement('div');
@@ -132,7 +123,11 @@ crosshairBoxCreate.setAttribute('id', 'crosshairSettingBox');
 settingBox.appendChild(crosshairBoxCreate);
 const crosshairSettingBox = document.getElementById('crosshairSettingBox');
 
-
+//title
+const crosshairHolderTitleCreate = document.createElement('h3');
+crosshairHolderTitleCreate.setAttribute('class', 'fncTitle');
+crosshairHolderTitleCreate.textContent = '- Crosshair -'
+crosshairSettingBox.appendChild(crosshairHolderTitleCreate);
 
 
 
@@ -219,7 +214,7 @@ crosshairSettingBox.appendChild(defaultSizeButtonCreate);
 //spacer
 spacer = document.createElement('div');
 spacer.setAttribute('class', 'spacer');
-settingBox.appendChild(spacer);
+crosshairSettingBox.appendChild(spacer);
 
 
 //logo holder

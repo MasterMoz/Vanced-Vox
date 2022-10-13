@@ -1,9 +1,12 @@
 //変数を指定
 let chHolder = document.getElementById("crosshair");
 let hide1 = document.getElementById("title");
-let hide2 = document.getElementById("crosshairSettingBox"); hide3 = document.getElementById("settingBox");
+let hide2 = document.getElementById("crosshairSettingBox");
+let hide3 = document.getElementById("settingBox");
 let hide4 = document.getElementById("logoHolder");
-
+let hide5 = document.getElementsByClassName('spacer')[0];
+let hide6 = document.getElementsByClassName('spacer')[1];
+let hide7 = document.getElementById('')
 
 cBoxVal = localStorage.getItem("checkBoxSaved");
 
@@ -19,6 +22,9 @@ function checkBox() {
     hide2.setAttribute("class", "");
     hide3.setAttribute("class", "");
     hide4.setAttribute("class", "");
+    hide5.setAttribute("class", "");
+    hide6.setAttribute("class", "");
+    hide7.setAttribute("class", "");
   } else if (!checktf) {
     localStorage.setItem("checkBoxSaved", "false");
     console.log("false");
@@ -26,6 +32,9 @@ function checkBox() {
     hide2.setAttribute("class", "hiddenClass");
     hide3.setAttribute("class", "hiddenClassSetting");
     hide4.setAttribute("class", "hiddenClass");
+    hide5.setAttribute("class", "hiddenClass");
+    hide6.setAttribute("class", "hiddenClass");
+    hide7.setAttribute("class", "hiddenClass");
   }
 }
 
@@ -136,10 +145,22 @@ function defaultSize() {
 
 
 //ロゴを設定する
+window.onload = logoOnLoad();
+function logoOnLoad(){
+    const urlVal = document.getElementById('logoUrlInput');
+    const textlVal = document.getElementById('logoTextInput');
+    let logoTextVal = localStorage.getItem("logoTextSaved");
+    let logoUrlVal = localStorage.getItem("logoUrlSaved");
+    urlVal.value= logoUrlVal;
+    textlVal.value = logoTextVal;
+}
+
+//ロゴの要素が追加されるまで監視する
 let logoFinder = setInterval(findElm, 10);
 let retry_counter = 0;
 let max_retry = 30000;
 
+//ロゴ要素が追加されたときの処理
 function findElm() {
   retry_counter++;
   console.log(retry_counter);
@@ -148,19 +169,21 @@ function findElm() {
   }
   const targetElm = document.getElementsByClassName('hrxbol');
   const targetElm2 = document.getElementsByClassName('yYlig');
+
+
   if (targetElm.length > 0 && targetElm2.length > 0) {
     console.log(targetElm);
-    console.log("unko");
     let logoTextVal = localStorage.getItem("logoTextSaved");
     let logoUrlVal = localStorage.getItem("logoUrlSaved");
     const logoText = document.getElementsByClassName("yYlig")[0];
     logoText.textContent = logoTextVal;
+
     const logo = document.getElementsByClassName("hrxbol")[0];
     logo.setAttribute("src", logoUrlVal);
+
     clearInterval(logoFinder);
   }
 }
-
 
 function logoUrlSet(){
     const logoUrlInput = document.getElementById('logoUrlInput').value
