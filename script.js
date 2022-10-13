@@ -12,18 +12,24 @@ let ccImageHeight
 let ccImageUrl
 
 
+
+
 //ローカルストレージへの初期設定
 //クロスヘアの幅
 let chWidthVal = localStorage.getItem('crosshairWidthSaved');
 if (!chWidthVal){
         localStorage.setItem('crosshairWidthSaved','32');
 };
+console.log(chWidthVal + ' crosshair width')
+
 
 //クロスヘアの高さをローカルストレージに
 let chHeightVal = localStorage.getItem('crosshairHeightSaved');
 if (!chHeightVal){
         localStorage.setItem('crosshairHeightSaved','32');
 };
+console.log(chHeightVal + ' crosshair height');
+
 
 //クロスヘアのurlを初期設定
 let chUrlVal = localStorage.getItem('crosshairUrlSaved');
@@ -31,32 +37,54 @@ if (!chUrlVal){
         localStorage.setItem('crosshairUrlSaved','https://cdn.discordapp.com/attachments/616206938048561152/922367836574335036/New_Piskel_49.png')
 };
 chUrlVal = localStorage.getItem('crosshairUrlSaved');
+console.log(chUrlVal + ' crosshair Url')
+
+
+//ロゴの初期値を設定
+let logoUrlVal = localStorage.getItem('logoUrlSaved');
+if (!logoUrlVal){
+        console.log('logo not rdy');
+        localStorage.setItem('logoUrlSaved','https://voxiom.io/package/ea55824826de52b7ccc3.png');
+}
+logoUrlVal = localStorage.getItem('logoUrlSaved');
+console.log(logoUrlVal + ' logo url');
+
+
+//ロゴの文字の初期値を設定
+let logoTextVal = localStorage.getItem('logoTextSaved');
+if (!logoTextVal){
+        console.log('logo text is none');
+        localStorage.setItem('logoTextSaved','Open Alpha Testing - Pre-Season')
+}
+logoTextVal = localStorage.getItem('logoTextSaved');
+console.log(logoTextVal + ' / logo text');
+
+
 
 //表示非表示チェックボックスの初期設定およびうんたらかんたら
 let cBoxVal = localStorage.getItem('checkBoxSaved');
 console.log(cBoxVal +' cBoxVal');
-console.log(localStorage.getItem('checkBoxSaved') + ' local');
+console.log(localStorage.getItem('checkBoxSaved') + ' visible');
 
 if (cBoxVal == null){
-        console.log(cBoxVal + ' null');
+        console.log(cBoxVal + ' / null');
         localStorage.setItem('checkBoxSaved','true');
 }else if(cBoxVal === "true"){
-        console.log(cBoxVal +' true');
+        console.log(cBoxVal +' / true');
 }else if(cBoxVal === "false"){
-        console.log(cBoxVal +' false');
+        console.log(cBoxVal +' / false');
 }else{
-        console.log('hoge')
+        console.log('hoge');
 }
 cBoxVal = localStorage.getItem('checkBoxSaved');
-console.log(cBoxVal);
-
-
+console.log(cBoxVal + ' visible');
 
 //settingBox
 const settingBoxCreate = document.createElement('div'); //<div id='settingBox'></div>を作成する
 settingBoxCreate.setAttribute('id', 'settingBox'); //idをsettingBoxにする
 gameBody.appendChild(settingBoxCreate); //bodyの一番下に挿入
 const settingBox = document.getElementById('settingBox'); //<div id='settingBox'>をsettingBoxに入れる
+
 
 //titleHolder
 const titleHCreate = document.createElement('div');
@@ -67,6 +95,7 @@ const titleCreate = document.createElement('h2');
 titleCreate.setAttribute('id','title');
 titleCreate.textContent = 'VancedVoxiom';
 titleHolder.appendChild(titleCreate);
+
 
 //Show <-> Hide checkbox
 const cBoxLabelCreate = document.createElement('label');//input+abelを作成
@@ -86,9 +115,13 @@ const cBoxSpan = document.createElement('span');
 cBoxSpan.setAttribute('id','cBoxDeco');
 cBoxLabel.appendChild(cBoxSpan);
 
+//spacer
+let spacer = document.createElement('div');
+spacer.setAttribute('class','spacer');
+settingBox.appendChild(spacer);
 
 
-//crosshairBoxHolder
+//crosshairSettingBoxHolder
 const crosshairBoxCreate = document.createElement('div');
 crosshairBoxCreate.setAttribute('id','crosshairSettingBox');
 settingBox.appendChild(crosshairBoxCreate);
@@ -107,6 +140,7 @@ const urlLabel = document.getElementById('urlLabel');
 const urlInputCreate = document.createElement('input');
 urlInputCreate.setAttribute('id', 'urlBox');
 urlInputCreate.setAttribute('type', 'text');
+urlInputCreate.setAttribute('class','inputText');
 urlInputCreate.setAttribute('oninput', 'imgUrlSet()');
 urlLabel.appendChild(urlInputCreate);
 document.getElementById('urlBox').value = localStorage.getItem('crosshairUrlSaved');
@@ -176,6 +210,18 @@ defaultSizeButtonCreate.setAttribute('onclick','defaultSize()')
 crosshairSettingBox.appendChild(defaultSizeButtonCreate);
 
 
+//spacer
+spacer = document.createElement('div');
+spacer.setAttribute('class','spacer');
+settingBox.appendChild(spacer);
+
+//spacer
+spacer = document.createElement('div');
+spacer.setAttribute('class','spacer');
+settingBox.appendChild(spacer);
+
+
+
 // クロスヘア
 const crosshairCreate = document.createElement('img');
 crosshairCreate.setAttribute('id', 'crosshair');
@@ -183,9 +229,15 @@ crosshairCreate.setAttribute('src',chUrlVal);
 appBody.prepend(crosshairCreate);
 
 
+//stylesheet
+let style=document.createElement('style');
+let css = `@import url("https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap");/*フォントの追加*/*,* *,body,html {font-family: "Zen Maru Gothic" !important;}`
+style.innerHTML = css;
+gameBody.appendChild(style);
+
+
 //function.jsを読み込み
 const script = document.createElement('script');
 script.src = chrome.runtime.getURL('function.js');
 gameBody.appendChild(script);
-
 

@@ -3,6 +3,7 @@ const chHolder = document.getElementById('crosshair');
 const hide1 = document.getElementById('title');
 const hide2 = document.getElementById('crosshairSettingBox');
 const hide3 = document.getElementById('settingBox');
+const hide4 = document.getElementById('logoHolder');
 
 cBoxVal = localStorage.getItem('checkBoxSaved');
 
@@ -17,24 +18,28 @@ function checkBox(){
         hide1.setAttribute("class","");
         hide2.setAttribute('class','');
         hide3.setAttribute('class','');
+        hide4.setAttribute('class','');
     }else if(!checktf){
         localStorage.setItem('checkBoxSaved','false');
         console.log("false");
         hide1.setAttribute("class","hiddenClass");
         hide2.setAttribute('class','hiddenClass');
         hide3.setAttribute('class','hiddenClassSetting');
+        hide4.setAttribute('class','hiddenClass');
     }
 }
-window.onload = onloadCBox();
 
-function onloadCBox(){
-    let checktf = localStorage.getItem('checkBoxSaved');
-    if(checktf === "true"){
 
-    }else if(checktf === "false") {
-
+    // window.onload = onloadLogo()
+    function onloadLogo(){
+        let logoTextVal = localStorage.getItem('logoTextSaved');
+        let logoUrlVal = localStorage.getItem('logoUrlSaved');
+        const logoText = document.getElementsByClassName('yYlig')[0];
+        logoText.textContent = logoTextVal;
+        const logo = document.getElementsByClassName('hrxbol')[0];
+        logo.setAttribute('src',logoUrlVal);    
     }
-}
+
 
 //設定ボックスの表示・非表示を切り替える
 
@@ -50,6 +55,7 @@ function cbLoaded(){
         hide1.setAttribute("class","");
         hide2.setAttribute('class','');
         hide3.setAttribute('class','');
+        hide4.setAttribute('class','');
     }else if(cBoxVal === "false"){
         console.log(cBoxVal +'/ false check');
         vcheck.checked = false;
@@ -57,6 +63,7 @@ function cbLoaded(){
         hide1.setAttribute("class","hiddenClass");
         hide2.setAttribute('class','hiddenClass');
         hide3.setAttribute('class','hiddenClassSetting');
+        hide4.setAttribute('class','hiddenClass');
     }
 }
 
