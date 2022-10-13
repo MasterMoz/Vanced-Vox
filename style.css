@@ -77,7 +77,7 @@ label {
     color: white;
     box-shadow: unset;
     border: unset;
-    width: auto;
+    width: 150px;
     margin-left: 10px;
     border-bottom: 1px white solid;
 }
@@ -184,4 +184,16 @@ input#vCheckBox {
     margin: 10px;
     height: 1px;
     background: white;
+}
+
+.fncTitle {
+    font-size: 14px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div#logoHolder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
