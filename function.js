@@ -191,13 +191,37 @@ function findElm() {
   }
 }
 
+//背景の画像・色の読み込み時の切り替え
+bgStyle = localStorage.getItem("bgStyleSaved");
+if(bgStyle == "image"){
+  const imageInput = document.getElementById('bgUrlLabel');
+  const colorInput = document.getElementById('bgColorHolder');
+  imageInput.setAttribute("class","");
+  colorInput.setAttribute("class","hiddenClass");
+
+}else if(bgStyle == "color"){
+  const imageInput = document.getElementById('bgUrlLabel');
+  const colorInput = document.getElementById('bgColorHolder');
+  imageInput.setAttribute("class","hiddenClass");
+  colorInput.setAttribute("class","");
+}
+
+
+
 //Logo urlが入力された
 function logoUrlSet() {
+  const logo = document.getElementsByClassName("hrxbol")[0];
   const logoUrlInput = document.getElementById("logoUrlInput").value;
   console.log(logoUrlInput);
-  const logo = document.getElementsByClassName("hrxbol")[0];
+  if(logoUrlInput.length < 1){
+    localStorage.setItem(
+      "logoUrlSaved",
+      "https://voxiom.io/package/ea55824826de52b7ccc3.png");
+    document.getElementById("logoUrlInput").value = localStorage.getItem('logoUrlSaved');
+  }else{
   logo.setAttribute("src", logoUrlInput);
   localStorage.setItem("logoUrlSaved", logoUrlInput);
+  }
 }
 
 //ロゴの下の文字が入力された時の処理
@@ -207,4 +231,86 @@ function logoTextSet() {
   const logoText = document.getElementsByClassName("yYlig")[0];
   logoText.textContent = logoTextInput;
   localStorage.setItem("logoTextSaved", logoTextInput);
+}
+
+//画像と色のどちらかを選択する
+function bgSelector(){
+  const imageInput = document.getElementById('bgUrlLabel');
+  const colorInput = document.getElementById('bgColorHolder');
+  const selector = document.getElementById('bgSelect').value;
+  if(selector == "image"){
+    console.log("image");
+    imageInput.setAttribute("class", "");
+    colorInput.setAttribute("class", "hiddenClass");
+    localStorage.setItem("bgStyleSaved",selector);
+    bgUrlSet();
+  }else if(selector == "color"){
+    console.log('color');
+    imageInput.setAttribute("class","hiddenClass");
+    colorInput.setAttribute("class","");
+    localStorage.setItem("bgStyleSaved",selector);
+    bgColorVal = localStorage.getItem("bgColorSaved");
+    document.documentElement.style.setProperty('--bgUrl',bgColorVal);
+  }else{
+    console.log("error")
+  }
+}
+// 画像の設定
+function bgUrlSet(){
+  bg = document.getElementsByClassName('bNczYf')[0];
+  bgUrl = document.getElementById('bgUrlInput').value;
+    if(bgUrl.length < 1){
+      document.documentElement.style.setProperty('--bgUrl','url(https://voxiom.io/package/c30b27cd3f6c8d9bb236.jpg)');
+      localStorage.setItem(
+        "bgUrlSaved",
+        "https://voxiom.io/package/c30b27cd3f6c8d9bb236.jpg"
+        );
+        document.getElementById('bgUrlInput').value = localStorage.getItem('bgUrlSaved')
+  }else{
+    document.documentElement.style.setProperty('--bgUrl','url('+bgUrl+')');
+    localStorage.setItem(
+      "bgUrlSaved",
+      bgUrl
+      );
+  }
+  console.log(bgUrl);
+}
+function colorPick1(){
+  let colorDeg = localStorage.getItem('colorDegSaved');
+  let color1 = localStorage.getItem('color1Saved');
+  let color2 = localStorage.getItem('color2Saved');
+  let color3 = localStorage.getItem('color3Saved');
+  const colorInput = document.getElementById('colorInput1');
+  console.log(colorInput.value);
+  color1 = colorInput.value;
+  localStorage.setItem('color1Saved',color1);
+  bgColorVal ='linear-gradient(' + colorDeg + 'deg ,' + color1 + ',' + color2 + ',' + color3 + ')'
+  document.documentElement.style.setProperty('--bgUrl',bgColorVal);
+  console.log(bgColorVal)
+}
+function colorPick2(){
+  let colorDeg = localStorage.getItem('colorDegSaved');
+  let color1 = localStorage.getItem('color1Saved');
+  let color2 = localStorage.getItem('color2Saved');
+  let color3 = localStorage.getItem('color3Saved');
+  const colorInput = document.getElementById('colorInput2');
+  console.log(colorInput.value);
+  color2 = colorInput.value;
+  localStorage.setItem('color2Saved',color2);
+  bgColorVal ='linear-gradient(' + colorDeg + 'deg ,' + color1 + ',' + color2 + ',' + color3 + ')'
+  document.documentElement.style.setProperty('--bgUrl',bgColorVal);
+  console.log(bgColorVal)
+}
+function colorPick3(){
+  let colorDeg = localStorage.getItem('colorDegSaved');
+  let color1 = localStorage.getItem('color1Saved');
+  let color2 = localStorage.getItem('color2Saved');
+  let color3 = localStorage.getItem('color3Saved');
+  const colorInput = document.getElementById('colorInput3');
+  console.log(colorInput.value);
+  color3 = colorInput.value;
+  localStorage.setItem('color3Saved',color3);
+  bgColorVal ='linear-gradient(' + colorDeg + 'deg ,' + color1 + ',' + color2 + ',' + color3 + ')'
+  document.documentElement.style.setProperty('--bgUrl',bgColorVal);
+  console.log(bgColorVal)
 }
