@@ -258,6 +258,10 @@ bgChangeHolderTitle.textContent = "- Background changer -";
 bgChangeHolder.appendChild(bgChangeHolderTitle);
 //bg selector
 const bgSelectorCreate = document.createElement("select");
+bgSelectorCreate.setAttribute("id", "bgSelect");
+const bgSelect = document.getElementById('bgSelect');
+
+const bgSelectOpt1 = document.createElement('option');
 
 // クロスヘア
 const crosshairCreate = document.createElement("img");
