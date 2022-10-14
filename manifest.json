@@ -21,5 +21,9 @@
       "resources":  [ "function.js" ,"style.css"],
       "matches": ["*://voxiom.io/*"]
       }
-    ]
+    ],
+    "action": {
+      "default_title":"VancedVox",
+      "default_popup": "index.html"
+  }
 }
