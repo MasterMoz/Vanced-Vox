@@ -212,7 +212,7 @@ if(bgStyle == "image"){
 function logoUrlSet() {
   const logo = document.getElementsByClassName("hrxbol")[0];
   const logoUrlInput = document.getElementById("logoUrlInput").value;
-  console.log(logoUrlInput);
+  // console.log(logoUrlInput);
   if(logoUrlInput.length < 1){
     localStorage.setItem(
       "logoUrlSaved",
@@ -227,7 +227,7 @@ function logoUrlSet() {
 //ロゴの下の文字が入力された時の処理
 function logoTextSet() {
   const logoTextInput = document.getElementById("logoTextInput").value;
-  console.log(logoTextInput);
+  // console.log(logoTextInput);
   const logoText = document.getElementsByClassName("yYlig")[0];
   logoText.textContent = logoTextInput;
   localStorage.setItem("logoTextSaved", logoTextInput);
@@ -249,7 +249,11 @@ function bgSelector(){
     imageInput.setAttribute("class","hiddenClass");
     colorInput.setAttribute("class","");
     localStorage.setItem("bgStyleSaved",selector);
-    bgColorVal = localStorage.getItem("bgColorSaved");
+    let colorDeg = localStorage.getItem('colorDegSaved');
+    let color1 = localStorage.getItem('color1Saved');
+    let color2 = localStorage.getItem('color2Saved');
+    let color3 = localStorage.getItem('color3Saved');
+    bgColorVal ='linear-gradient(' + colorDeg + 'deg ,' + color1 + ',' + color2 + ',' + color3 + ')'
     document.documentElement.style.setProperty('--bgUrl',bgColorVal);
   }else{
     console.log("error")
@@ -273,20 +277,52 @@ function bgUrlSet(){
       bgUrl
       );
   }
-  console.log(bgUrl);
+  // console.log(bgUrl);
 }
+
+function colorDeg(){
+  let colorDeg = localStorage.getItem('colorDegSaved');
+  let color1 = localStorage.getItem('color1Saved');
+  let color2 = localStorage.getItem('color2Saved');
+  let color3 = localStorage.getItem('color3Saved');
+  const colorDegInput= document.getElementById('colorDeg');
+  // console.log(colorDegInput.value);
+  colorDeg = colorDegInput.value;
+  document.getElementById('colorDegVal').value = colorDeg
+  localStorage.setItem('colorDegSaved',colorDeg);
+  bgColorVal ='linear-gradient(' + colorDeg + 'deg ,' + color1 + ',' + color2 + ',' + color3 + ')';
+  document.documentElement.style.setProperty('--bgUrl',bgColorVal);
+  // console.log(bgColorVal);
+}
+
+function colorDeg1(){
+  let colorDeg = localStorage.getItem('colorDegSaved');
+  let color1 = localStorage.getItem('color1Saved');
+  let color2 = localStorage.getItem('color2Saved');
+  let color3 = localStorage.getItem('color3Saved');
+  const colorDegVal= document.getElementById('colorDegVal').value;
+  // console.log(colorDegVal);
+  colorDeg = colorDegVal;
+  // console.log(colorDeg)
+  document.getElementById('colorDeg').value = colorDeg;
+  localStorage.setItem('colorDegSaved',colorDeg);
+  bgColorVal ='linear-gradient(' + colorDeg + 'deg ,' + color1 + ',' + color2 + ',' + color3 + ')';
+  document.documentElement.style.setProperty('--bgUrl',bgColorVal);
+  // console.log(bgColorVal);
+}
+
 function colorPick1(){
   let colorDeg = localStorage.getItem('colorDegSaved');
   let color1 = localStorage.getItem('color1Saved');
   let color2 = localStorage.getItem('color2Saved');
   let color3 = localStorage.getItem('color3Saved');
   const colorInput = document.getElementById('colorInput1');
-  console.log(colorInput.value);
+  // console.log(colorInput.value);
   color1 = colorInput.value;
   localStorage.setItem('color1Saved',color1);
   bgColorVal ='linear-gradient(' + colorDeg + 'deg ,' + color1 + ',' + color2 + ',' + color3 + ')'
   document.documentElement.style.setProperty('--bgUrl',bgColorVal);
-  console.log(bgColorVal)
+  // console.log(bgColorVal)
 }
 function colorPick2(){
   let colorDeg = localStorage.getItem('colorDegSaved');
@@ -294,12 +330,12 @@ function colorPick2(){
   let color2 = localStorage.getItem('color2Saved');
   let color3 = localStorage.getItem('color3Saved');
   const colorInput = document.getElementById('colorInput2');
-  console.log(colorInput.value);
+  // console.log(colorInput.value);
   color2 = colorInput.value;
   localStorage.setItem('color2Saved',color2);
   bgColorVal ='linear-gradient(' + colorDeg + 'deg ,' + color1 + ',' + color2 + ',' + color3 + ')'
   document.documentElement.style.setProperty('--bgUrl',bgColorVal);
-  console.log(bgColorVal)
+  // console.log(bgColorVal)
 }
 function colorPick3(){
   let colorDeg = localStorage.getItem('colorDegSaved');
@@ -307,10 +343,10 @@ function colorPick3(){
   let color2 = localStorage.getItem('color2Saved');
   let color3 = localStorage.getItem('color3Saved');
   const colorInput = document.getElementById('colorInput3');
-  console.log(colorInput.value);
+  // console.log(colorInput.value);
   color3 = colorInput.value;
   localStorage.setItem('color3Saved',color3);
   bgColorVal ='linear-gradient(' + colorDeg + 'deg ,' + color1 + ',' + color2 + ',' + color3 + ')'
   document.documentElement.style.setProperty('--bgUrl',bgColorVal);
-  console.log(bgColorVal)
+  // console.log(bgColorVal)
 }

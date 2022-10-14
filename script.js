@@ -362,7 +362,29 @@ document.getElementById('bgUrlInput').value = bgUrlVal;
 const bgColorHolderCreate = document.createElement('div');
 bgColorHolderCreate.setAttribute('id','bgColorHolder');
 bgChangeHolder.appendChild(bgColorHolderCreate);
-const bgColorHolder = document.getElementById('bgColorHolder')
+const bgColorHolder = document.getElementById('bgColorHolder');
+
+//角度
+const colorDegLabelCreate = document.createElement('label');
+colorDegLabelCreate.setAttribute('id','colorDegLabel');
+colorDegLabelCreate.textContent = 'Deg';
+bgColorHolder.appendChild(colorDegLabelCreate);
+const colorDegLabel = document.getElementById('colorDegLabel');
+const colorDegInputCreate = document.createElement('input');
+colorDegInputCreate.setAttribute('type','range');
+colorDegInputCreate.setAttribute('id','colorDeg');
+colorDegInputCreate.setAttribute('oninput','colorDeg()')
+colorDegInputCreate.setAttribute('max','360');
+colorDegInputCreate.defaultValue = localStorage.getItem('colorDegSaved');
+colorDegLabel.appendChild(colorDegInputCreate);
+const colorDegInput = document.getElementById('colorDeg');
+const colorDegInputTextCreate = document.createElement('input');
+colorDegInputTextCreate.setAttribute('id','colorDegVal');
+colorDegInputTextCreate.setAttribute('type','number');
+colorDegInputTextCreate.setAttribute('oninput','colorDeg1()');
+colorDegInputTextCreate.defaultValue = localStorage.getItem('colorDegSaved');
+colorDegLabel.appendChild(colorDegInputTextCreate);
+
 
 //色1
 const color1LabelCreate = document.createElement('Label');
@@ -404,6 +426,7 @@ color3InputCreate.setAttribute('id','colorInput3');
 color3InputCreate.setAttribute('oninput','colorPick3()');
 color3InputCreate.setAttribute('value',color3);
 color3Label.appendChild(color3InputCreate);
+
 
 
 
