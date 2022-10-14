@@ -4,9 +4,9 @@ let hide1 = document.getElementById("title");
 let hide2 = document.getElementById("crosshairSettingBox");
 let hide3 = document.getElementById("settingBox");
 let hide4 = document.getElementById("logoHolder");
-let hide5 = document.getElementsByClassName('spacer')[0];
-let hide6 = document.getElementsByClassName('spacer')[1];
-let hide7 = document.getElementById('')
+let hide5 = document.getElementsByClassName("spacer")[0];
+let hide6 = document.getElementsByClassName("spacer")[1];
+let hide7 = document.getElementById("bgChangeHolder");
 
 cBoxVal = localStorage.getItem("checkBoxSaved");
 
@@ -21,9 +21,9 @@ function checkBox() {
     hide1.setAttribute("class", "");
     hide2.setAttribute("class", "");
     hide3.setAttribute("class", "");
-    hide4.setAttribute("class", "");
-    hide5.setAttribute("class", "");
-    hide6.setAttribute("class", "");
+    hide4.setAttribute("class", "logoHolder");
+    hide5.setAttribute("class", "spacer");
+    hide6.setAttribute("class", "spacer");
     hide7.setAttribute("class", "");
   } else if (!checktf) {
     localStorage.setItem("checkBoxSaved", "false");
@@ -31,9 +31,12 @@ function checkBox() {
     hide1.setAttribute("class", "hiddenClass");
     hide2.setAttribute("class", "hiddenClass");
     hide3.setAttribute("class", "hiddenClassSetting");
+    hide4.setAttribute("class", "logoHolder");
     hide4.setAttribute("class", "hiddenClass");
+    hide5.setAttribute("class", "spacer");
     hide5.setAttribute("class", "hiddenClass");
     hide6.setAttribute("class", "hiddenClass");
+    hide6.setAttribute("class", "spacer");
     hide7.setAttribute("class", "hiddenClass");
   }
 }
@@ -43,18 +46,18 @@ function checkBox() {
 vcheck = document.getElementById("vCheckBox");
 let loadChecker = setInterval(findElm2, 10);
 let retry = 0;
-function findElm2(){
-    retry++
-    const tarElm1 = document.getElementsByClassName('logoHolder');
-    console.log(retry + ' hidden');
-console.log(tarElm1);
-    if(tarElm1.length > 0){
-        console.log("waaa");
-        window.onload = cbLoaded();
-        clearInterval(loadChecker);
-    }else if (retry >= 1000){
-        clearInterval(loadChecker);
-    }
+function findElm2() {
+  retry++;
+  const tarElm1 = document.getElementsByClassName("logoHolder");
+  console.log(retry + " hidden");
+  console.log(tarElm1);
+  if (tarElm1.length > 0) {
+    console.log("waaa");
+    window.onload = cbLoaded();
+    clearInterval(loadChecker);
+  } else if (retry >= 1000) {
+    clearInterval(loadChecker);
+  }
 }
 
 function cbLoaded() {
@@ -66,6 +69,9 @@ function cbLoaded() {
     hide2.setAttribute("class", "");
     hide3.setAttribute("class", "");
     hide4.setAttribute("class", "");
+    hide5.setAttribute("class", "");
+    hide6.setAttribute("class", "");
+    hide7.setAttribute("class", "");
   } else if (cBoxVal === "false") {
     console.log(cBoxVal + "/ false check");
     vcheck.checked = false;
@@ -74,6 +80,9 @@ function cbLoaded() {
     hide2.setAttribute("class", "hiddenClass");
     hide3.setAttribute("class", "hiddenClassSetting");
     hide4.setAttribute("class", "hiddenClass");
+    hide5.setAttribute("class", "hiddenClass");
+    hide6.setAttribute("class", "hiddenClass");
+    hide7.setAttribute("class", "hiddenClass");
   }
 }
 
@@ -142,17 +151,15 @@ function defaultSize() {
   document.getElementById("chHeight").value = imgHeight;
 }
 
-
-
 //ロゴを設定する
 window.onload = logoOnLoad();
-function logoOnLoad(){
-    const urlVal = document.getElementById('logoUrlInput');
-    const textlVal = document.getElementById('logoTextInput');
-    let logoTextVal = localStorage.getItem("logoTextSaved");
-    let logoUrlVal = localStorage.getItem("logoUrlSaved");
-    urlVal.value= logoUrlVal;
-    textlVal.value = logoTextVal;
+function logoOnLoad() {
+  const urlVal = document.getElementById("logoUrlInput");
+  const textlVal = document.getElementById("logoTextInput");
+  let logoTextVal = localStorage.getItem("logoTextSaved");
+  let logoUrlVal = localStorage.getItem("logoUrlSaved");
+  urlVal.value = logoUrlVal;
+  textlVal.value = logoTextVal;
 }
 
 //ロゴの要素が追加されるまで監視する
@@ -164,12 +171,11 @@ let max_retry = 30000;
 function findElm() {
   retry_counter++;
   console.log(retry_counter);
-  if(retry_counter > max_retry){
+  if (retry_counter > max_retry) {
     clearInterval(logoFinder);
   }
-  const targetElm = document.getElementsByClassName('hrxbol');
-  const targetElm2 = document.getElementsByClassName('yYlig');
-
+  const targetElm = document.getElementsByClassName("hrxbol");
+  const targetElm2 = document.getElementsByClassName("yYlig");
 
   if (targetElm.length > 0 && targetElm2.length > 0) {
     console.log(targetElm);
@@ -185,18 +191,20 @@ function findElm() {
   }
 }
 
-function logoUrlSet(){
-    const logoUrlInput = document.getElementById('logoUrlInput').value
-    console.log(logoUrlInput);
-    const logo = document.getElementsByClassName("hrxbol")[0];
-    logo.setAttribute("src", logoUrlInput);
-    localStorage.setItem('logoUrlSaved',logoUrlInput);
-};
+//Logo urlが入力された
+function logoUrlSet() {
+  const logoUrlInput = document.getElementById("logoUrlInput").value;
+  console.log(logoUrlInput);
+  const logo = document.getElementsByClassName("hrxbol")[0];
+  logo.setAttribute("src", logoUrlInput);
+  localStorage.setItem("logoUrlSaved", logoUrlInput);
+}
 
-function logoTextSet(){
-    const logoTextInput = document.getElementById('logoTextInput').value
-    console.log(logoTextInput);
-    const logoText = document.getElementsByClassName("yYlig")[0];
-    logoText.textContent = logoTextInput;
-    localStorage.setItem('logoTextSaved',logoTextInput);
+//ロゴの下の文字が入力された時の処理
+function logoTextSet() {
+  const logoTextInput = document.getElementById("logoTextInput").value;
+  console.log(logoTextInput);
+  const logoText = document.getElementsByClassName("yYlig")[0];
+  logoText.textContent = logoTextInput;
+  localStorage.setItem("logoTextSaved", logoTextInput);
 }

@@ -1,24 +1,11 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+@import url("https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap");
 
-
-html,
-body {
-    width: 100%;
-    height: 100%;
-    font-weight: 300;
-    color: #fff;
-    overflow: hidden;
-    font-size: 15px;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+/*フォントの追加*/
+*,
+* *,
+body,
+html {
+    font-family: "Zen Maru Gothic" !important;
 }
 
 /*右上の配信の奴とか消す*/
@@ -26,16 +13,20 @@ body {
     display: none !important;
 }
 
+/* 設定のフォーカスした時の外枠非表示 */
 #settingBox:focus,
 #settingBox *:focus {
     outline: none;
 }
+
 
 label {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin-bottom: 5px;
+    margin-top: 5px;
 }
 
 /*settingBoxのスタイル*/
@@ -67,9 +58,6 @@ label {
     image-rendering: pixelated
 }
 
-#urlLabel {
-    margin-right: 10px;
-}
 
 .inputText {
     height: 20px;
@@ -77,14 +65,11 @@ label {
     color: white;
     box-shadow: unset;
     border: unset;
-    width: 150px;
+    width: 180px;
     margin-left: 10px;
     border-bottom: 1px white solid;
 }
 
-#aimbotButton {
-    margin-left: auto;
-}
 
 div#heightHolder,
 div#widthHolder {
@@ -99,6 +84,8 @@ p {
     margin-inline-end: 0px;
 }
 
+
+/* スライダーの見た目を変更 */
 input[type="range"] {
     -webkit-appearance: none;
     height: 2px;
@@ -109,8 +96,8 @@ input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
     background: rgb(0, 0, 0);
     border: 2px solid white;
-    height: 8px;
-    width: 8px;
+    height: 12px;
+    width: 12px;
     border-radius: 10px;
 }
 
@@ -193,8 +180,18 @@ input#vCheckBox {
     margin-bottom: 4px
 }
 
-div#logoHolder {
+div#logoHolder,
+#bgChangeHolder {
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+input.defaultSizeButton {
+    background: transparent;
+    border: white solid 2px;
+    border-radius: 0px;
+    color: white;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
