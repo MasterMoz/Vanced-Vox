@@ -8,7 +8,7 @@ html {
 html {
     user-select: none;
     width: 170px;
-    background: #252525;
+    background: #222;
     display: flex;
     flex-direction: column;
     color: #aaa;
@@ -23,7 +23,6 @@ body {
     flex-direction: column;
 }
 
-
 .list {
     display: flex;
     align-items: center;
@@ -35,6 +34,7 @@ body {
     color: #aaa;
     text-decoration: unset;
     font-size: 15px;
+    background: #fff1;
 }
 
 .list:hover {
@@ -42,7 +42,7 @@ body {
 }
 
 .listLogo {
-    height: 20px;
+    height: 16px;
     margin-right: 10px;
 }
 
@@ -54,5 +54,4 @@ body {
 
 .spacer {
     height: 4px;
-    background: #222;
 }
