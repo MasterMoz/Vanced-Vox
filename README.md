@@ -30,6 +30,6 @@ Background can be changed to an image of your choice or a 3-color gradient.
 
 ## Coming Soon?
 
-[ ] CSS Loader
-[ ] Ammo display
-[ ] Themes
+[] CSS Loader
+[] Ammo display
+[] Themes
