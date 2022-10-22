@@ -9,7 +9,7 @@
   },
   "name": "Vanced Voxiom",
   "short_name" : "V-Vox",
-  "version": "0.1",
+  "version": "0.2",
   "description" : "Make your experience at Voxiom.io all the more amazing!",
   "author" : "Namekuji",
   "content_scripts": [{
