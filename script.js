@@ -131,6 +131,9 @@ if (cBoxVal == null) {
 cBoxVal = localStorage.getItem("checkBoxSaved");
 console.log(cBoxVal + " visible");
 
+//cssVal
+const cssValue = localStorage.getItem("cssValSaved");
+
 //settingBox
 const settingBoxCreate = document.createElement("div"); //<div id='settingBox'></div>を作成する
 settingBoxCreate.setAttribute("id", "settingBox"); //idをsettingBoxにする
@@ -442,7 +445,15 @@ cssLoadHolder.appendChild(cssLoaderTitle);
 const cssInputCreate = document.createElement("textarea");
 cssInputCreate.setAttribute("id", "cssInput");
 cssInputCreate.setAttribute("class", "inputArea");
+cssInputCreate.setAttribute("oninput", "cssInput()");
+cssInputCreate.defaultValue = localStorage.getItem("cssValSaved");
 cssLoadHolder.appendChild(cssInputCreate);
+
+//add css
+const styleAdd = document.createElement("style");
+styleAdd.innerHTML = localStorage.getItem("cssValSaved");
+styleAdd.setAttribute("id", "styleHold");
+gameBody.appendChild(styleAdd);
 
 //stylesheet
 const style = document.createElement("link");

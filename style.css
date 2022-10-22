@@ -197,9 +197,11 @@ input#vCheckBox {
 
 .fncTitle {
     font-size: 14px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 4px
+    padding: 2px;
+    padding-left: 10px;
+    margin-bottom: 4px;
+    background: #fff1;
+
 }
 
 div#logoHolder,
@@ -229,7 +231,7 @@ input.defaultSizeButton {
     border: solid 1px white;
     resize: vertical;
     margin-left: auto;
-    height: 150px;
+    height: 70px;
     width: 230px;
     margin-right: auto;
 }
