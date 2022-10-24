@@ -28,8 +28,15 @@ Background can be changed to an image of your choice or a 3-color gradient.
 
 > By leaving URL blank when image mode, the default background will be automatically applied.
 
-## Coming Soon?
+## CSS Loader
+You can edit css realtime.
+> Check help page if you have problems about css holder
 
-- [ ] CSS Loader
+
+## Help page
+[HELP PAGE] (https://namekujilsds.github.io/VVoxHelp.html "V-Vox Help")
+
+
+## Coming Soon?
 - [ ] Ammo display
 - [ ] Themes
