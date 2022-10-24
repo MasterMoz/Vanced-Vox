@@ -1,12 +1,8 @@
 //変数を指定
 let chHolder = document.getElementById("crosshair");
-let hide1 = document.getElementById("title");
-let hide2 = document.getElementById("crosshairSettingBox");
+let hide1 = document.getElementById("sbHolder");
+let hide2 = document.getElementById("title");
 let hide3 = document.getElementById("settingBox");
-let hide4 = document.getElementById("logoHolder");
-let hide5 = document.getElementsByClassName("spacer")[0];
-let hide6 = document.getElementsByClassName("spacer")[1];
-let hide7 = document.getElementById("bgChangeHolder");
 
 cBoxVal = localStorage.getItem("checkBoxSaved");
 
@@ -21,23 +17,12 @@ function checkBox() {
     hide1.setAttribute("class", "");
     hide2.setAttribute("class", "");
     hide3.setAttribute("class", "");
-    hide4.setAttribute("class", "logoHolder");
-    hide5.setAttribute("class", "spacer");
-    hide6.setAttribute("class", "spacer");
-    hide7.setAttribute("class", "");
   } else if (!checktf) {
     localStorage.setItem("checkBoxSaved", "false");
     console.log("false");
     hide1.setAttribute("class", "hiddenClass");
     hide2.setAttribute("class", "hiddenClass");
     hide3.setAttribute("class", "hiddenClassSetting");
-    hide4.setAttribute("class", "logoHolder");
-    hide4.setAttribute("class", "hiddenClass");
-    hide5.setAttribute("class", "spacer");
-    hide5.setAttribute("class", "hiddenClass");
-    hide6.setAttribute("class", "hiddenClass");
-    hide6.setAttribute("class", "spacer");
-    hide7.setAttribute("class", "hiddenClass");
   }
 }
 
@@ -68,10 +53,6 @@ function cbLoaded() {
     hide1.setAttribute("class", "");
     hide2.setAttribute("class", "");
     hide3.setAttribute("class", "");
-    hide4.setAttribute("class", "");
-    hide5.setAttribute("class", "");
-    hide6.setAttribute("class", "");
-    hide7.setAttribute("class", "");
   } else if (cBoxVal === "false") {
     console.log(cBoxVal + "/ false check");
     vcheck.checked = false;
@@ -79,10 +60,6 @@ function cbLoaded() {
     hide1.setAttribute("class", "hiddenClass");
     hide2.setAttribute("class", "hiddenClass");
     hide3.setAttribute("class", "hiddenClassSetting");
-    hide4.setAttribute("class", "hiddenClass");
-    hide5.setAttribute("class", "hiddenClass");
-    hide6.setAttribute("class", "hiddenClass");
-    hide7.setAttribute("class", "hiddenClass");
   }
 }
 

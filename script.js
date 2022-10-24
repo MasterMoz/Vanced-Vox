@@ -168,10 +168,16 @@ const cBoxSpan = document.createElement("span");
 cBoxSpan.setAttribute("id", "cBoxDeco");
 cBoxLabel.appendChild(cBoxSpan);
 
+//settingBoxの中を一括で消せるようにするためのホルダーを作成
+const sbHolderCreate = document.createElement("div");
+sbHolderCreate.setAttribute("id", "sbHolder");
+settingBox.appendChild(sbHolderCreate);
+const sbHolder = document.getElementById("sbHolder");
+
 //crosshairSettingBoxHolder
 const crosshairBoxCreate = document.createElement("div");
 crosshairBoxCreate.setAttribute("id", "crosshairSettingBox");
-settingBox.appendChild(crosshairBoxCreate);
+sbHolder.appendChild(crosshairBoxCreate);
 const crosshairSettingBox = document.getElementById("crosshairSettingBox");
 
 //title
@@ -265,7 +271,7 @@ crosshairSettingBox.appendChild(spacer1);
 const logoHolderCreate = document.createElement("div");
 logoHolderCreate.setAttribute("class", "logoHolder");
 logoHolderCreate.setAttribute("id", "logoHolder");
-settingBox.appendChild(logoHolderCreate);
+sbHolder.appendChild(logoHolderCreate);
 const logoHolder = document.getElementById("logoHolder");
 
 //title
@@ -312,7 +318,7 @@ logoHolder.appendChild(spacer2);
 //bg change holder
 const bgChangeHolderCreate = document.createElement("div");
 bgChangeHolderCreate.setAttribute("id", "bgChangeHolder");
-settingBox.appendChild(bgChangeHolderCreate);
+sbHolder.appendChild(bgChangeHolderCreate);
 const bgChangeHolder = document.getElementById("bgChangeHolder");
 //title
 const bgChangeHolderTitle = document.createElement("h3");
@@ -434,7 +440,7 @@ appBody.prepend(crosshairCreate);
 //ホルダー
 const cssLoadHolderCreate = document.createElement("div");
 cssLoadHolderCreate.setAttribute("id", "cssHolder");
-settingBox.appendChild(cssLoadHolderCreate);
+sbHolder.appendChild(cssLoadHolderCreate);
 const cssLoadHolder = document.getElementById("cssHolder");
 //title
 const cssLoaderTitle = document.createElement("h3");
@@ -453,16 +459,16 @@ cssLoadHolder.appendChild(cssInputCreate);
 const styleAdd = document.createElement("style");
 styleAdd.innerHTML = localStorage.getItem("cssValSaved");
 styleAdd.setAttribute("id", "styleHold");
-gameBody.appendChild(styleAdd);
+document.body.appendChild(styleAdd);
 
 //stylesheet
 const style = document.createElement("link");
 style.setAttribute("rel", "stylesheet");
 style.setAttribute("type", "text/css");
 style.href = chrome.runtime.getURL("style.css");
-gameBody.appendChild(style);
+document.body.appendChild(style);
 
 //function.jsを読み込み
 const script = document.createElement("script");
 script.src = chrome.runtime.getURL("function.js");
-gameBody.appendChild(script);
+document.body.appendChild(script);
