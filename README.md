@@ -34,7 +34,7 @@ You can edit css realtime.
 
 
 ## Help page
-[HELP PAGE] (https://namekujilsds.github.io/VVoxHelp.html "V-Vox Help")
+[HELP] (https://namekujilsds.github.io/VVoxHelp.html)
 
 
 ## Coming Soon?
