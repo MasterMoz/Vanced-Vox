@@ -8,6 +8,12 @@ let ccImageHeight;
 let ccImageUrl;
 
 //ローカルストレージへの初期設定
+//クロスヘアのスタイル
+let chStyle = localStorage.getItem("crosshairStyleSaved");
+if (!chStyle) {
+  localStorage.setItem("crosshairStyleSaved", "image");
+}
+
 //クロスヘアの幅
 let chWidthVal = localStorage.getItem("crosshairWidthSaved");
 if (!chWidthVal) {
@@ -186,11 +192,65 @@ crosshairHolderTitleCreate.setAttribute("class", "fncTitle");
 crosshairHolderTitleCreate.textContent = "- Crosshair -";
 crosshairSettingBox.appendChild(crosshairHolderTitleCreate);
 
+//CrosshairStyle
+const chStyleCreate = document.createElement("select");
+chStyleCreate.setAttribute("id", "chStyle");
+chStyleCreate.setAttribute("oninput", "chStyle()");
+crosshairSettingBox.appendChild(chStyleCreate);
+const chSelect = document.getElementById("chStyle");
+//画像の時
+const chSelectOpt1 = document.createElement("option");
+chSelectOpt1.setAttribute("value", "image");
+chSelectOpt1.textContent = "Image";
+if (chStyle == "image") {
+  chSelectOpt1.setAttribute("selected", "");
+}
+chSelect.appendChild(chSelectOpt1);
+//Tスタイル
+const chSelectOpt2 = document.createElement("option");
+chSelectOpt2.setAttribute("value", "tstyle");
+chSelectOpt2.textContent = "T-style";
+if (chStyle == "tstyle") {
+  chSelectOpt2.setAttribute("selected", "");
+}
+chSelect.appendChild(chSelectOpt2);
+//十字の時
+const chSelectOpt3 = document.createElement("option");
+chSelectOpt3.setAttribute("value", "cross");
+chSelectOpt3.textContent = "Cross";
+if (chStyle == "cross") {
+  chSelectOpt3.setAttribute("selected", "");
+}
+chSelect.appendChild(chSelectOpt3);
+//丸の時
+const chSelectOpt4 = document.createElement("option");
+chSelectOpt4.setAttribute("value", "circle");
+chSelectOpt4.textContent = "Circle";
+if (chStyle == "circle") {
+  chSelectOpt4.setAttribute("selected", "");
+}
+chSelect.appendChild(chSelectOpt4);
+//ドットの時
+const chSelectOpt5 = document.createElement("option");
+chSelectOpt5.setAttribute("value", "dot");
+chSelectOpt5.textContent = "Dot";
+if (chStyle == "dot") {
+  chSelectOpt5.setAttribute("selected", "");
+}
+chSelect.appendChild(chSelectOpt5);
+
+//クロスヘア設定ホルダを４つ準備する
+
+const chHolder1Create = document.createElement("div");
+chHolder1Create.setAttribute("id", "chHold1");
+crosshairSettingBox.appendChild(chHolder1Create);
+const chHolder1 = document.getElementById("chHold1");
+
 //TEXT [URL]
 const urlInputLabelCreate = document.createElement("label");
 urlInputLabelCreate.setAttribute("id", "urlLabel");
 urlInputLabelCreate.textContent = "URL";
-crosshairSettingBox.appendChild(urlInputLabelCreate);
+chHolder1.appendChild(urlInputLabelCreate);
 const urlLabel = document.getElementById("urlLabel");
 
 //URL INPUT BOX
@@ -208,7 +268,7 @@ document.getElementById("urlBox").value =
 chWidthVal = localStorage.getItem("crosshairWidthSave");
 const widthHolderCreate = document.createElement("div");
 widthHolderCreate.setAttribute("id", "widthHolder");
-crosshairSettingBox.appendChild(widthHolderCreate);
+chHolder1.appendChild(widthHolderCreate);
 const widthHolder = document.getElementById("widthHolder");
 //widthという文字を表示
 const widthTextShowCreate = document.createElement("p");
@@ -233,7 +293,7 @@ widthHolder.appendChild(widthValSpanCreate);
 //heightのホルダー
 const heightHolderCreate = document.createElement("div");
 heightHolderCreate.setAttribute("id", "heightHolder");
-crosshairSettingBox.appendChild(heightHolderCreate);
+chHolder1.appendChild(heightHolderCreate);
 const heightHolder = document.getElementById("heightHolder");
 //heightという文字を表示
 const heightTextShowCreate = document.createElement("p");
@@ -260,7 +320,25 @@ defaultSizeButtonCreate.setAttribute("class", "defaultSizeButton");
 defaultSizeButtonCreate.setAttribute("type", "button");
 defaultSizeButtonCreate.setAttribute("value", "Auto Default Size");
 defaultSizeButtonCreate.setAttribute("onclick", "defaultSize()");
-crosshairSettingBox.appendChild(defaultSizeButtonCreate);
+chHolder1.appendChild(defaultSizeButtonCreate);
+
+//T-Style用のホルダー
+const chHolder2Create = document.createElement("div");
+chHolder2Create.setAttribute("id", "chHold2");
+crosshairSettingBox.appendChild(chHolder2Create);
+const chHolder2 = document.getElementById("chHold2");
+
+//Cross用
+const chHolder3Create = document.createElement("div");
+chHolder3Create.setAttribute("id", "chHold3");
+crosshairSettingBox.appendChild(chHolder3Create);
+const chHolder3 = document.getElementById("chHold3");
+
+//Circle用
+const chHolder4Create = document.createElement("div");
+chHolder4Create.setAttribute("id", "chHold4");
+crosshairSettingBox.appendChild(chHolder4Create);
+const chHolder4 = document.getElementById("chHold4");
 
 //spacer
 const spacer1 = document.createElement("div");
@@ -432,7 +510,7 @@ color3Label.appendChild(color3InputCreate);
 
 // クロスヘア
 const crosshairCreate = document.createElement("img");
-crosshairCreate.setAttribute("id", "crosshair");
+crosshairCreate.setAttribute("id", "crosshair1");
 crosshairCreate.setAttribute("src", chUrlVal);
 appBody.prepend(crosshairCreate);
 

@@ -1,5 +1,5 @@
 //変数を指定
-let chHolder = document.getElementById("crosshair");
+let chHolder = document.getElementById("crosshair1");
 let hide1 = document.getElementById("sbHolder");
 let hide2 = document.getElementById("title");
 let hide3 = document.getElementById("settingBox");
@@ -63,9 +63,14 @@ function cbLoaded() {
   }
 }
 
+//画像のスタイルの切り替え
+function chStyle() {
+  const chStyleVal = document.getElementById("chStyle").value;
+  localStorage.setItem("crosshairStyleSaved", chStyleVal);
+}
+
 //width slider
 window.onload = imgWSet();
-
 //スライダー側
 function imgWSet() {
   const widthVal = document.getElementById("chWidth").value;
