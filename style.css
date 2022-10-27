@@ -243,4 +243,5 @@ input.defaultSizeButton {
 #chHold4,
 #chHold5 {
     display: flex;
+    flex-direction: column;
 }

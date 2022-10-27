@@ -201,7 +201,6 @@ const chSelect = document.getElementById("chStyle");
 //画像の時
 const chSelectOpt1 = document.createElement("option");
 chSelectOpt1.setAttribute("value", "image");
-chSelectOpt1.setAttribute('class','chSt1');
 chSelectOpt1.textContent = "Image";
 if (chStyle == "image") {
   chSelectOpt1.setAttribute("selected", "");
@@ -340,6 +339,12 @@ const chHolder4Create = document.createElement("div");
 chHolder4Create.setAttribute("id", "chHold4");
 crosshairSettingBox.appendChild(chHolder4Create);
 const chHolder4 = document.getElementById("chHold4");
+
+//dot用
+const chHolder5Create = document.createElement("div");
+chHolder1Create.setAttribute("id", "chHold5");
+crosshairSettingBox.appendChild(chHolder5Create);
+const chHolder5 = document.getElementById("chHold5");
 
 //spacer
 const spacer1 = document.createElement("div");
@@ -510,10 +515,51 @@ color3InputCreate.setAttribute("value", color3);
 color3Label.appendChild(color3InputCreate);
 
 // クロスヘア
-const crosshairCreate = document.createElement("img");
-crosshairCreate.setAttribute("id", "crosshair1");
-crosshairCreate.setAttribute("src", chUrlVal);
-appBody.prepend(crosshairCreate);
+//画像
+const crosshair1Create = document.createElement("img");
+crosshair1Create.setAttribute("id", "crosshair1");
+crosshair1Create.setAttribute("src", chUrlVal);
+appBody.prepend(crosshair1Create);
+
+//T
+const crosshair2Create = document.createElement("div");
+crosshair2Create.setAttribute("id", "crosshair2");
+appBody.prepend(crosshair2Create);
+const crosshair2 = document.getElementById("crosshair2");
+
+const crosshair2LCreate = document.createElement("div");
+crosshair2LCreate.setAttribute("id", "ch2L");
+crosshair2.appendChild(crosshair2LCreate);
+
+const crosshair2RCreate = document.createElement("div");
+crosshair2RCreate.setAttribute("id", "ch2R");
+crosshair2.appendChild(crosshair2RCreate);
+
+const crosshair2BCreate = document.createElement("div");
+crosshair2BCreate.setAttribute("id", "ch2B");
+crosshair2.appendChild(crosshair2BCreate);
+
+//cross
+const crosshair3Create = document.createElement("img");
+crosshair3Create.setAttribute("id", "crosshair3");
+appBody.prepend(crosshair3Create);
+const crosshair3 = document.getElementById("crosshair3");
+
+const crosshair3LCreate = document.createElement("div");
+crosshair3LCreate.setAttribute("id", "ch3L");
+crosshair3.appendChild(crosshair3LCreate);
+
+const crosshair3RCreate = document.createElement("div");
+crosshair3RCreate.setAttribute("id", "ch3R");
+crosshair3.appendChild(crosshair3RCreate);
+
+const crosshair3BCreate = document.createElement("div");
+crosshair3BCreate.setAttribute("id", "ch3B");
+crosshair3.appendChild(crosshair3BCreate);
+
+const crosshair3TCreate = document.createElement("div");
+crosshair3TCreate.setAttribute("id", "ch3T");
+crosshair3.appendChild(crosshair3TCreate);
 
 //CSSローダー
 //ホルダー
