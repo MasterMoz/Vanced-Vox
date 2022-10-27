@@ -4,6 +4,14 @@ let hide1 = document.getElementById("sbHolder");
 let hide2 = document.getElementById("title");
 let hide3 = document.getElementById("settingBox");
 
+
+let ch1 = document.getElementById('chHold1');
+let ch2 = document.getElementById('chHold2');
+let ch3 = document.getElementById('chHold3');
+let ch4 = document.getElementById('chHold4');
+let ch5 = document.getElementById('chHold5');
+
+
 cBoxVal = localStorage.getItem("checkBoxSaved");
 
 //表示非表示チェックボックス

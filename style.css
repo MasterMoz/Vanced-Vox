@@ -235,3 +235,12 @@ input.defaultSizeButton {
     width: 230px;
     margin-right: auto;
 }
+
+
+#chHold1,
+#chHold2,
+#chHold3,
+#chHold4,
+#chHold5 {
+    display: flex;
+}

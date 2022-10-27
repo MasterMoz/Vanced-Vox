@@ -201,6 +201,7 @@ const chSelect = document.getElementById("chStyle");
 //画像の時
 const chSelectOpt1 = document.createElement("option");
 chSelectOpt1.setAttribute("value", "image");
+chSelectOpt1.setAttribute('class','chSt1');
 chSelectOpt1.textContent = "Image";
 if (chStyle == "image") {
   chSelectOpt1.setAttribute("selected", "");
@@ -239,7 +240,7 @@ if (chStyle == "dot") {
 }
 chSelect.appendChild(chSelectOpt5);
 
-//クロスヘア設定ホルダを４つ準備する
+//クロスヘア設定ホルダを5つ準備する
 
 const chHolder1Create = document.createElement("div");
 chHolder1Create.setAttribute("id", "chHold1");
