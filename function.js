@@ -19,13 +19,11 @@ function checkBox() {
   let checktf = checkbox.checked;
   if (checktf) {
     localStorage.setItem("checkBoxSaved", "true");
-    console.log("true");
     hide1.setAttribute("class", "");
     hide2.setAttribute("class", "");
     hide3.setAttribute("class", "");
   } else if (!checktf) {
     localStorage.setItem("checkBoxSaved", "false");
-    console.log("false");
     hide1.setAttribute("class", "hiddenClass");
     hide2.setAttribute("class", "hiddenClass");
     hide3.setAttribute("class", "hiddenClassSetting");
@@ -40,10 +38,7 @@ let retry = 0;
 function findElm2() {
   retry++;
   const tarElm1 = document.getElementsByClassName("logoHolder");
-  console.log(retry + " hidden");
-  console.log(tarElm1);
   if (tarElm1.length > 0) {
-    console.log("waaa");
     window.onload = cbLoaded();
     clearInterval(loadChecker);
   } else if (retry >= 1000) {
@@ -53,16 +48,12 @@ function findElm2() {
 
 function cbLoaded() {
   if (cBoxVal === "true") {
-    console.log(cBoxVal + "/ true check");
     vcheck.checked = true;
-    console.log("default is true");
     hide1.setAttribute("class", "");
     hide2.setAttribute("class", "");
     hide3.setAttribute("class", "");
   } else if (cBoxVal === "false") {
-    console.log(cBoxVal + "/ false check");
     vcheck.checked = false;
-    console.log("default is false");
     hide1.setAttribute("class", "hiddenClass");
     hide2.setAttribute("class", "hiddenClass");
     hide3.setAttribute("class", "hiddenClassSetting");
@@ -123,8 +114,6 @@ function defaultSize() {
   //画像サイズの取得
   let imgWidth = crosshairImage.naturalWidth;
   let imgHeight = crosshairImage.naturalHeight;
-  console.log("Width is " + imgWidth + "px");
-  console.log("Height is " + imgHeight + "px");
   //画像サイズ
   chHolder.setAttribute("width", imgWidth + "px");
   chHolder.setAttribute("height", imgHeight + "px");
@@ -151,33 +140,37 @@ function logoOnLoad() {
 }
 
 //ロゴの要素が追加されるまで監視する
-let logoFinder = setInterval(findElm, 10);
-let retry_counter = 0;
-let max_retry = 30000;
-
-//ロゴ要素が追加されたときの処理
-function findElm() {
-  retry_counter++;
-  console.log(retry_counter);
-  if (retry_counter > max_retry) {
-    clearInterval(logoFinder);
-  }
-  const targetElm = document.getElementsByClassName("hrxbol");
-  const targetElm2 = document.getElementsByClassName("yYlig");
-
-  if (targetElm.length > 0 && targetElm2.length > 0) {
-    console.log(targetElm);
-    let logoTextVal = localStorage.getItem("logoTextSaved");
-    let logoUrlVal = localStorage.getItem("logoUrlSaved");
-    const logoText = document.getElementsByClassName("yYlig")[0];
-    logoText.textContent = logoTextVal;
-
-    const logo = document.getElementsByClassName("hrxbol")[0];
-    logo.setAttribute("src", logoUrlVal);
-
-    clearInterval(logoFinder);
+//オプション
+const options = {
+  childList: true, //直接の子の変更を監視
+  characterData: true, //文字の変化を監視
+  characterDataOldValue: true, //属性の変化前を記録
+  attributes: true, //属性の変化を監視
+  subtree: true, //全ての子要素を監視
+};
+//コールバック関数
+function callback(mutationsList, observer) {
+  for (const mutation of mutationsList) {
+    const tags = mutation.target;
+    for (const node of tags.querySelectorAll("img")) {
+      if (node.getAttribute("class") === "sc-iaUyqC hrxbol") {
+        obs.disconnect();
+        let logoTextVal = localStorage.getItem("logoTextSaved");
+        let logoUrlVal = localStorage.getItem("logoUrlSaved");
+        const logoText = document.getElementsByClassName("yYlig")[0];
+        logoText.textContent = logoTextVal;
+        const logo = document.getElementsByClassName("hrxbol")[0];
+        logo.setAttribute("src", logoUrlVal);
+      }
+    }
   }
 }
+//ターゲット要素をDOMで取得
+const target = document.getElementById("app");
+//インスタンス化
+const obs = new MutationObserver(callback);
+//ターゲット要素の監視を開始
+obs.observe(target, options);
 
 //背景の画像・色の読み込み時の切り替え
 bgStyle = localStorage.getItem("bgStyleSaved");
@@ -197,7 +190,6 @@ if (bgStyle == "image") {
 function logoUrlSet() {
   const logo = document.getElementsByClassName("hrxbol")[0];
   const logoUrlInput = document.getElementById("logoUrlInput").value;
-  // console.log(logoUrlInput);
   if (logoUrlInput.length < 1) {
     localStorage.setItem(
       "logoUrlSaved",
@@ -214,7 +206,6 @@ function logoUrlSet() {
 //ロゴの下の文字が入力された時の処理
 function logoTextSet() {
   const logoTextInput = document.getElementById("logoTextInput").value;
-  // console.log(logoTextInput);
   const logoText = document.getElementsByClassName("yYlig")[0];
   logoText.textContent = logoTextInput;
   localStorage.setItem("logoTextSaved", logoTextInput);
@@ -226,13 +217,11 @@ function bgSelector() {
   const colorInput = document.getElementById("bgColorHolder");
   const selector = document.getElementById("bgSelect").value;
   if (selector == "image") {
-    console.log("image");
     imageInput.setAttribute("class", "");
     colorInput.setAttribute("class", "hiddenClass");
     localStorage.setItem("bgStyleSaved", selector);
     bgUrlSet();
   } else if (selector == "color") {
-    console.log("color");
     imageInput.setAttribute("class", "hiddenClass");
     colorInput.setAttribute("class", "");
     localStorage.setItem("bgStyleSaved", selector);
@@ -252,7 +241,6 @@ function bgSelector() {
       ")";
     document.documentElement.style.setProperty("--bgUrl", bgColorVal);
   } else {
-    console.log("error");
   }
 }
 // 画像の設定
@@ -274,7 +262,6 @@ function bgUrlSet() {
     document.documentElement.style.setProperty("--bgUrl", "url(" + bgUrl + ")");
     localStorage.setItem("bgUrlSaved", bgUrl);
   }
-  // console.log(bgUrl);
 }
 
 function colorDeg() {
@@ -283,7 +270,6 @@ function colorDeg() {
   let color2 = localStorage.getItem("color2Saved");
   let color3 = localStorage.getItem("color3Saved");
   const colorDegInput = document.getElementById("colorDeg");
-  // console.log(colorDegInput.value);
   colorDeg = colorDegInput.value;
   document.getElementById("colorDegVal").value = colorDeg;
   localStorage.setItem("colorDegSaved", colorDeg);
@@ -298,7 +284,6 @@ function colorDeg() {
     color3 +
     ")";
   document.documentElement.style.setProperty("--bgUrl", bgColorVal);
-  // console.log(bgColorVal);
 }
 
 function colorDeg1() {
@@ -307,9 +292,7 @@ function colorDeg1() {
   let color2 = localStorage.getItem("color2Saved");
   let color3 = localStorage.getItem("color3Saved");
   const colorDegVal = document.getElementById("colorDegVal").value;
-  // console.log(colorDegVal);
   colorDeg = colorDegVal;
-  // console.log(colorDeg)
   document.getElementById("colorDeg").value = colorDeg;
   localStorage.setItem("colorDegSaved", colorDeg);
   bgColorVal =
@@ -323,7 +306,6 @@ function colorDeg1() {
     color3 +
     ")";
   document.documentElement.style.setProperty("--bgUrl", bgColorVal);
-  // console.log(bgColorVal);
 }
 
 function colorPick1() {
@@ -332,7 +314,6 @@ function colorPick1() {
   let color2 = localStorage.getItem("color2Saved");
   let color3 = localStorage.getItem("color3Saved");
   const colorInput = document.getElementById("colorInput1");
-  // console.log(colorInput.value);
   color1 = colorInput.value;
   localStorage.setItem("color1Saved", color1);
   bgColorVal =
@@ -346,7 +327,6 @@ function colorPick1() {
     color3 +
     ")";
   document.documentElement.style.setProperty("--bgUrl", bgColorVal);
-  // console.log(bgColorVal)
 }
 function colorPick2() {
   let colorDeg = localStorage.getItem("colorDegSaved");
@@ -354,7 +334,6 @@ function colorPick2() {
   let color2 = localStorage.getItem("color2Saved");
   let color3 = localStorage.getItem("color3Saved");
   const colorInput = document.getElementById("colorInput2");
-  // console.log(colorInput.value);
   color2 = colorInput.value;
   localStorage.setItem("color2Saved", color2);
   bgColorVal =
@@ -368,7 +347,6 @@ function colorPick2() {
     color3 +
     ")";
   document.documentElement.style.setProperty("--bgUrl", bgColorVal);
-  // console.log(bgColorVal)
 }
 function colorPick3() {
   let colorDeg = localStorage.getItem("colorDegSaved");
@@ -376,7 +354,6 @@ function colorPick3() {
   let color2 = localStorage.getItem("color2Saved");
   let color3 = localStorage.getItem("color3Saved");
   const colorInput = document.getElementById("colorInput3");
-  // console.log(colorInput.value);
   color3 = colorInput.value;
   localStorage.setItem("color3Saved", color3);
   bgColorVal =
@@ -390,7 +367,6 @@ function colorPick3() {
     color3 +
     ")";
   document.documentElement.style.setProperty("--bgUrl", bgColorVal);
-  // console.log(bgColorVal)
 }
 
 //cssローダー
