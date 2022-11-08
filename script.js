@@ -41,7 +41,7 @@ let logoUrlVal = localStorage.getItem("logoUrlSaved");
 if (!logoUrlVal) {
   localStorage.setItem(
     "logoUrlSaved",
-    "https://voxiom.io/package/ea55824826de52b7ccc3.png"
+    "https://cdn.discordapp.com/attachments/1037214116961595402/1039399334283837440/image_12.png"
   );
 }
 logoUrlVal = localStorage.getItem("logoUrlSaved");
@@ -49,7 +49,7 @@ logoUrlVal = localStorage.getItem("logoUrlSaved");
 //ロゴの文字の初期値を設定
 let logoTextVal = localStorage.getItem("logoTextSaved");
 if (!logoTextVal) {
-  localStorage.setItem("logoTextSaved", "Open Alpha Testing - Pre-Season");
+  localStorage.setItem("logoTextSaved", "BE FASTER");
 }
 logoTextVal = localStorage.getItem("logoTextSaved");
 
@@ -91,7 +91,7 @@ let bgUrlVal = localStorage.getItem("bgUrlSaved");
 if (!bgUrlVal) {
   localStorage.setItem(
     "bgUrlSaved",
-    "https://voxiom.io/package/c30b27cd3f6c8d9bb236.jpg"
+    "https://cdn.discordapp.com/attachments/1037214116961595402/1039395337690959973/image_11.png"
   );
 }
 bgUrlVal = localStorage.getItem("bgUrlSaved");

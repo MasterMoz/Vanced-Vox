@@ -12,11 +12,11 @@ let ch5 = document.getElementById("chHold5");
 
 cBoxVal = localStorage.getItem("checkBoxSaved");
 
-const inst = localStorage.getItem('inst');
-if(!inst){
+const inst = localStorage.getItem("inst");
+if (!inst) {
   alert("Join our discord to get updates and support!");
-  window.open('https://discord.gg/qusjZSbXQX');
-  localStorage.setItem('inst','true')
+  window.open("https://discord.gg/qusjZSbXQX");
+  localStorage.setItem("inst", "true");
 }
 
 //表示非表示チェックボックス
@@ -165,6 +165,10 @@ function callback(mutationsList, observer) {
         let logoUrlVal = localStorage.getItem("logoUrlSaved");
         const logoText = document.getElementsByClassName("yYlig")[0];
         logoText.textContent = logoTextVal;
+        logoText.setAttribute(
+          "  text-shadow",
+          "1px 1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000,-1px -1px 0 #000"
+        );
         const logo = document.getElementsByClassName("hrxbol")[0];
         logo.setAttribute("src", logoUrlVal);
       }
