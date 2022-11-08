@@ -166,8 +166,8 @@ function callback(mutationsList, observer) {
         const logoText = document.getElementsByClassName("yYlig")[0];
         logoText.textContent = logoTextVal;
         logoText.setAttribute(
-          "  text-shadow",
-          "1px 1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000,-1px -1px 0 #000"
+          "style",
+          "color:black;text-shadow:1px 1px 0 #fff,1px -1px 0 #fff,-1px 1px 0 #fff,-1px -1px 0 #fff;font-weight:bolder;"
         );
         const logo = document.getElementsByClassName("hrxbol")[0];
         logo.setAttribute("src", logoUrlVal);
