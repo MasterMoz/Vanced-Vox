@@ -1,6 +1,13 @@
 // bodyと#appを取得
-const gameBody = document.body;
-const appBody = document.getElementById("app");
+let gameBody = document.body;
+let appBody = document.getElementById("app");
+
+if (!document.getElementById("app")) {
+    const appCreate = document.createElement("div");
+    appCreate.setAttribute("id", "app");
+    gameBody.appendChild(appCreate);
+    appBody = document.getElementById("app");
+}
 
 //要素の定義
 let ccImageWidth;
@@ -39,17 +46,28 @@ chUrlVal = localStorage.getItem("crosshairUrlSaved");
 //ロゴの初期値を設定
 let logoUrlVal = localStorage.getItem("logoUrlSaved");
 if (!logoUrlVal) {
+<<<<<<< HEAD
     localStorage.setItem(
         "logoUrlSaved",
         "https://voxiom.io/package/ea55824826de52b7ccc3.png"
     );
+=======
+  localStorage.setItem(
+    "logoUrlSaved",
+    "https://cdn.discordapp.com/attachments/1037214116961595402/1039399334283837440/image_12.png"
+  );
+>>>>>>> 392c625d406610e4a4cd03f1295679fc7a8eacb5
 }
 logoUrlVal = localStorage.getItem("logoUrlSaved");
 
 //ロゴの文字の初期値を設定
 let logoTextVal = localStorage.getItem("logoTextSaved");
 if (!logoTextVal) {
+<<<<<<< HEAD
     localStorage.setItem("logoTextSaved", "Open Alpha Testing - Pre-Season");
+=======
+  localStorage.setItem("logoTextSaved", "BE FASTER");
+>>>>>>> 392c625d406610e4a4cd03f1295679fc7a8eacb5
 }
 logoTextVal = localStorage.getItem("logoTextSaved");
 
@@ -89,10 +107,17 @@ bgColorVal =
 //背景の画像のurlを設定
 let bgUrlVal = localStorage.getItem("bgUrlSaved");
 if (!bgUrlVal) {
+<<<<<<< HEAD
     localStorage.setItem(
         "bgUrlSaved",
         "https://voxiom.io/package/c30b27cd3f6c8d9bb236.jpg"
     );
+=======
+  localStorage.setItem(
+    "bgUrlSaved",
+    "https://cdn.discordapp.com/attachments/1037214116961595402/1039403881853112420/image_11_2.png"
+  );
+>>>>>>> 392c625d406610e4a4cd03f1295679fc7a8eacb5
 }
 bgUrlVal = localStorage.getItem("bgUrlSaved");
 
@@ -101,10 +126,18 @@ let bgStyle = localStorage.getItem("bgStyleSaved");
 if (!bgStyle) {
     localStorage.setItem("bgStyleSaved", "image");
 } else if (bgStyle == "image") {
+<<<<<<< HEAD
     document.documentElement.style.setProperty(
         "--bgUrl",
         "url(" + bgUrlVal + ")"
     );
+=======
+  bgUrlVal = localStorage.getItem("bgUrlSaved");
+  document.documentElement.style.setProperty(
+    "--bgUrl",
+    "url(" + bgUrlVal + ")"
+  );
+>>>>>>> 392c625d406610e4a4cd03f1295679fc7a8eacb5
 } else if (bgStyle == "color") {
     document.documentElement.style.setProperty("--bgUrl", bgColorVal);
 }
@@ -580,3 +613,28 @@ document.body.appendChild(style);
 const script = document.createElement("script");
 script.src = chrome.runtime.getURL("function.js");
 document.body.appendChild(script);
+
+//discordのURLを変更してやるぜぐへへ
+const links = document.querySelectorAll("a");
+for (let link of links) {
+    const href = link.getAttribute("href");
+    if (href === "https://discord.gg/GBFtRcY") {
+        console.log(link);
+        console.log(href);
+        link.setAttribute("href", "https://discord.gg/qusjZSbXQX");
+    } else {
+        console.log(link);
+        console.log(href);
+    }
+}
+
+const imgs = document.querySelectorAll("img");
+for (let img of imgs) {
+    const src = img.getAttribute("src");
+    if (src === "/./package/3ad1db34f5eb135eaf13.png") {
+        img.setAttribute(
+            "src",
+            "https://cdn.discordapp.com/attachments/1037214116961595402/1039406001616597033/3ad1db34f5eb135eaf13_1.png"
+        );
+    }
+}
